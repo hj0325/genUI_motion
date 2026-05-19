@@ -781,21 +781,79 @@
   .preview-cell .dot-music3__noteSvg circle:nth-child(34) { animation-delay: 0.676s, 1.74s; }
   .preview-cell .dot-music3__noteSvg circle:nth-child(30) { animation-delay: 0.694s, 1.76s; }
   .preview-cell .dot-music1 {
-    width: 340px !important;
-    clip-path: inset(0 172px 0 0 round 32px);
-    animation: dotMusicPreviewReveal 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-    will-change: clip-path;
+    width: 168px;
+    clip-path: inset(0 0 0 0 round 32px);
+    animation: dotMusicPreviewRevealCardHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: width, clip-path;
   }
   .preview-cell .dot-music1__compact {
-    width: 120px;
-    animation: dotMusicPreviewCompact 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    width: 168px;
+    animation: dotMusicPreviewCompactHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .preview-cell .dot-music1__expanded {
-    animation: dotMusicPreviewActions 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotMusicExpandedIn 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .preview-cell .dot-music1__icon {
-    animation: dotMusicPreviewIcon 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotMusicPreviewIconHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
+  .preview-cell .dot-music1__compact--layout .dot-music1__player::before {
+    animation:
+      dotMusicPreviewSecondBgInHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotMusicSecondBgFlow 9s linear 5s infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__player::after {
+    animation:
+      dotMusicPreviewSecondTextInHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotMusicSecondTitleGradient 2.2s linear 6.6s infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__singer-name {
+    animation:
+      dotMusicSingerGradient 2.2s linear 3s infinite,
+      dotMusicPreviewFirstTextOutHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__iconBg {
+    animation: dotMusicPreviewFirstIconBgHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__musicIcon {
+    animation: dotMusicPreviewFirstIconHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__noteSvg circle {
+    animation: dotMusicIconDotSweep 1.8s steps(1, end) 3s 1 forwards;
+  }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(1) { animation-delay: 3.000s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(7) { animation-delay: 3.018s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(2) { animation-delay: 3.036s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(3) { animation-delay: 3.054s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(8) { animation-delay: 3.072s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(13) { animation-delay: 3.090s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(9) { animation-delay: 3.108s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(14) { animation-delay: 3.126s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(4) { animation-delay: 3.144s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(19) { animation-delay: 3.162s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(15) { animation-delay: 3.180s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(10) { animation-delay: 3.198s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(5) { animation-delay: 3.216s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(21) { animation-delay: 3.234s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(25) { animation-delay: 3.252s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(16) { animation-delay: 3.270s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(11) { animation-delay: 3.288s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(6) { animation-delay: 3.306s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(31) { animation-delay: 3.324s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(26) { animation-delay: 3.342s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(23) { animation-delay: 3.360s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(12) { animation-delay: 3.378s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(17) { animation-delay: 3.396s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(32) { animation-delay: 3.414s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(27) { animation-delay: 3.432s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(18) { animation-delay: 3.450s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(20) { animation-delay: 3.468s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(22) { animation-delay: 3.486s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(28) { animation-delay: 3.504s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(33) { animation-delay: 3.522s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(24) { animation-delay: 3.540s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(29) { animation-delay: 3.558s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(34) { animation-delay: 3.576s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(30) { animation-delay: 3.594s; }
   .preview-cell .stage-scale > .dot-music2--actions .dot-music2__btn {
     opacity: 0;
     transform: translateX(14px) scale(0.96);
@@ -1022,6 +1080,84 @@
     0%, 28% { clip-path: inset(0 172px 0 0 round 32px); }
     42%, 94% { clip-path: inset(0 0 0 0 round 32px); }
     100% { clip-path: inset(0 172px 0 0 round 32px); }
+  }
+  @keyframes dotMusicPreviewRevealCardHold {
+    0%, 63.16%, 100% {
+      width: 168px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+    66.32%, 89.47% {
+      width: 340px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+  }
+  @keyframes dotMusicPreviewCompactHold {
+    0%, 63.16%, 100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+    66.32%, 89.47% {
+      opacity: 0;
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes dotMusicPreviewIconHold {
+    0%, 63.16%, 100% {
+      opacity: 0;
+      transform: translateX(0) scale(1);
+    }
+    66.32%, 89.47% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes dotMusicPreviewFirstTextOutHold {
+    0%, 26.32%, 100% { opacity: 1; }
+    32.63%, 89.47% { opacity: 0; }
+  }
+  @keyframes dotMusicPreviewSecondBgInHold {
+    0%, 26.32%, 66.32%, 100% { opacity: 0; }
+    37.89%, 63.16% { opacity: 1; }
+  }
+  @keyframes dotMusicPreviewSecondTextInHold {
+    0%, 34.74%, 66.32%, 100% { opacity: 0; }
+    41.05%, 63.16% { opacity: 1; }
+  }
+  @keyframes dotMusicPreviewFirstIconBgHold {
+    0%, 26.32%, 100% {
+      width: 53.86px;
+      height: 53.86px;
+      left: 24px;
+      top: 94.14px;
+      border-radius: 83.3167px;
+      background: #FF9950;
+      opacity: 1;
+    }
+    37.89%, 89.47% {
+      width: 96.77px;
+      height: 96.77px;
+      left: 35.08px;
+      top: 19.54px;
+      border-radius: 149.684px;
+      background: linear-gradient(306.8deg, #FF6A00 -2.23%, #FFCE73 90.04%);
+      opacity: 1;
+    }
+  }
+  @keyframes dotMusicPreviewFirstIconHold {
+    0%, 26.32%, 100% {
+      width: 24.87px;
+      height: 24.62px;
+      left: 38.31px;
+      top: 108.45px;
+      opacity: 1;
+    }
+    37.89%, 89.47% {
+      width: 44.69px;
+      height: 44.23px;
+      left: 60.06px;
+      top: 45.53px;
+      opacity: 1;
+    }
   }
   @keyframes dotMusicPreviewCompact {
     0%, 26% {
@@ -3435,6 +3571,18 @@
     opacity: 1;
     animation: dotCameraIntroOut 8.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+  .preview-cell .dot-camera-motion {
+    width: 82px;
+    height: 82px;
+    background: #FF7F24;
+    border-radius: 99px;
+    animation: dotCameraDetailShell 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: width, height, border-radius, background;
+  }
+  .preview-cell .dot-camera-motion__intro {
+    opacity: 1;
+    animation: dotCameraIntroOut 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
   @keyframes dotCameraDetailShell {
     0%, 42% {
       width: 82px;
@@ -3510,6 +3658,12 @@
     animation: dotCameraWidgetIn 8.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     will-change: opacity;
   }
+  .preview-cell .camera-widget-key-color-ver {
+    opacity: 0;
+    z-index: 10;
+    animation: dotCameraWidgetIn 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: opacity;
+  }
   .camera-widget__img {
     position: absolute;
     width: 168px;
@@ -3562,6 +3716,10 @@
   .detail-stage .camera-widget__expand-button {
     opacity: 0;
     animation: dotCameraControlIn 8.2s linear forwards;
+  }
+  .preview-cell .camera-widget__expand-button {
+    opacity: 0;
+    animation: dotCameraControlIn 8.2s linear infinite;
   }
   .camera-widget__expand-svg {
     display: block;
@@ -4031,6 +4189,14 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
+  }
+  .preview-cell .stage .stage-scale > .dot-camera-motion {
+    width: 82px;
+    height: 82px;
+  }
+  .preview-cell .stage .stage-scale > .dot-camera-motion .camera-widget-key-color-ver {
+    width: 168px;
+    height: 340px;
   }
   .preview-cell .stage::after {
     content: none;
