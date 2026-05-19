@@ -2620,6 +2620,142 @@
     margin-bottom: 12px; /* Align degree symbol higher */
   }
 
+  /* Icon 1×1 (82×82) */
+  .dot-icon11 {
+    width: 82px;
+    height: 82px;
+    position: relative;
+    border-radius: 101.68px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --dot-icon-cycle: 12s;
+  }
+  .dot-icon11--orange {
+    background: #FF7F24;
+    --dot-mask-bg: #FF7F24;
+  }
+  .dot-icon11__layer {
+    width: 82px;
+    height: 82px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    will-change: opacity, filter;
+  }
+  .dot-icon11__layer--from {
+    opacity: 1;
+    filter: blur(0px);
+    animation: dotIconFromLoop var(--dot-icon-cycle) ease-in-out 0ms infinite;
+  }
+  .dot-icon11__layer--to {
+    opacity: 0;
+    filter: blur(10px);
+    animation: dotIconToLoop var(--dot-icon-cycle) ease-in-out 0ms infinite;
+  }
+
+  /* Gradient background: two blobs drift independently (colors flow through each other) */
+  .dot-icon11__grad {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    /* Keep orange dominant so motion doesn't wash out */
+    background: linear-gradient(90deg, #FF8517 0%, #FF8517 58%, #F9FF8B 100%);
+  }
+  .dot-icon11__grad::before,
+  .dot-icon11__grad::after {
+    content: "";
+    position: absolute;
+    inset: -52%;
+    border-radius: 999px;
+    filter: blur(12px);
+    opacity: 0.9;
+    will-change: transform;
+    mix-blend-mode: normal;
+  }
+  .dot-icon11__grad::before {
+    /* Yellow highlight (slightly softer so orange reads stronger) */
+    opacity: 0.72;
+    background: radial-gradient(circle at 40% 45%, rgba(249, 255, 139, 1) 0%, rgba(249, 255, 139, 0) 68%);
+    animation: dotGradBlobA 3600ms ease-in-out 0ms infinite alternate;
+  }
+  .dot-icon11__grad::after {
+    /* Orange body (bigger + stronger) */
+    opacity: 1;
+    background: radial-gradient(circle at 55% 55%, rgba(255, 133, 23, 1) 0%, rgba(255, 133, 23, 0) 78%);
+    animation: dotGradBlobB 4200ms ease-in-out 0ms infinite alternate;
+  }
+  @keyframes dotGradBlobA {
+    0%   { transform: translate(-6%, -4%) scale(1.05); }
+    50%  { transform: translate(10%, 6%) scale(1.12); }
+    100% { transform: translate(-2%, 14%) scale(1.06); }
+  }
+  @keyframes dotGradBlobB {
+    0%   { transform: translate(10%, 8%) scale(1.08); }
+    50%  { transform: translate(-8%, -10%) scale(1.14); }
+    100% { transform: translate(-14%, 4%) scale(1.07); }
+  }
+
+  /* Dots overlay stays smaller than the 82×82 gradient circle */
+  .dot-icon11__dotsSvg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72px;
+    height: 72px;
+    translate: -50% -50%;
+    overflow: visible;
+  }
+
+  /* Wave motion (dot size changes, audio-wave feel) */
+  .dot-icon11__waveDot {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: dotWaveDot 1050ms ease-in-out 0ms infinite;
+  }
+  .dot-icon11__waveDot--a { animation-delay: 0ms; }
+  .dot-icon11__waveDot--b { animation-delay: 70ms; }
+  .dot-icon11__waveDot--c { animation-delay: 140ms; }
+  .dot-icon11__waveDot--d { animation-delay: 210ms; }
+
+  /* pseudo-random "audio" breathing */
+  @keyframes dotWaveDot {
+    0%   { transform: scale(0.92); opacity: 0.92; }
+    18%  { transform: scale(1.18); opacity: 1; }
+    38%  { transform: scale(0.86); opacity: 0.88; }
+    58%  { transform: scale(1.26); opacity: 1; }
+    78%  { transform: scale(0.94); opacity: 0.94; }
+    100% { transform: scale(0.92); opacity: 0.92; }
+  }
+
+  /* Loop timeline (12s):
+     0.0–3.0s   : show FROM
+     3.0–3.9s   : crossfade → TO
+     3.9–9.9s   : hold TO (6s)
+     9.9–10.8s  : crossfade → FROM
+     10.8–12.0s : hold FROM
+  */
+  @keyframes dotIconFromLoop {
+    0% { opacity: 1; filter: blur(0px); }
+    25% { opacity: 1; filter: blur(0px); }
+    32.5% { opacity: 0; filter: blur(10px); }
+    82.5% { opacity: 0; filter: blur(10px); }
+    90% { opacity: 1; filter: blur(0px); }
+    100% { opacity: 1; filter: blur(0px); }
+  }
+  @keyframes dotIconToLoop {
+    0% { opacity: 0; filter: blur(10px); }
+    25% { opacity: 0; filter: blur(10px); }
+    32.5% { opacity: 1; filter: blur(0px); }
+    82.5% { opacity: 1; filter: blur(0px); }
+    90% { opacity: 0; filter: blur(10px); }
+    100% { opacity: 0; filter: blur(10px); }
+  }
+
   /* Weather 1×1 (82×82) */
   .dot-w11 {
     width: 82px;

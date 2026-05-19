@@ -4148,6 +4148,41 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
         '</div>';
     }
 
+    case 'dot-icon-orange-badge-1x1': {
+      var iv = (comp && comp.variant) || {};
+      var src = iv.src || '/assets/dot-icons/orange-badge.svg';
+      return '' +
+        '<div class="dot-card dot-icon11 dot-icon11--orange" data-state="' + (iv.state || 'idle') + '">' +
+          '<img class="dot-icon11__layer dot-icon11__layer--from" src="' + src + '" alt="" />' +
+          '<div class="dot-icon11__layer dot-icon11__layer--to" aria-hidden="true">' +
+            '<div class="dot-icon11__grad" aria-hidden="true"></div>' +
+            '<svg class="dot-icon11__dotsSvg" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--a" cx="7.5" cy="36.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="14.5" cy="36.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="21.5" cy="36.5" r="2.5" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--d" cx="35.5" cy="36" rx="2.5" ry="5" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="35.5" cy="27" rx="2.5" ry="3" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--a" cx="42.5" cy="28" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="49.5" cy="31" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--d" cx="28.5" cy="28" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="21.5" cy="31" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--a" cx="42.5" cy="43" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="28.5" cy="43" rx="1.5" ry="2" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--d" cx="35.5" cy="45" rx="2.5" ry="3" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="42.5" cy="36" rx="2.5" ry="4" fill="white"/>' +
+              '<ellipse class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="28.5" cy="36" rx="2.5" ry="4" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--a" cx="35.5" cy="20.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--d" cx="35.5" cy="15.5" r="1.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="35.5" cy="56.5" r="1.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="35.5" cy="51.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--a" cx="49.5" cy="36.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--b" cx="56.5" cy="36.5" r="2.5" fill="white"/>' +
+              '<circle class="dot-icon11__waveDot dot-icon11__waveDot--c" cx="63.5" cy="36.5" r="2.5" fill="white"/>' +
+            '</svg>' +
+          '</div>' +
+        '</div>';
+    }
+
     case 'dot-weather-1x1': {
       var wv = (comp && comp.variant) || {};
       // Sun icon as dot-matrix inside 46.37×46.37 box, centered.

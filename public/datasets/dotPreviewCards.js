@@ -206,6 +206,12 @@
       variant: { value: '14', unit: '℃' }
     },
     {
+      name: 'Orange badge (icon) 1×1 (dot)',
+      editSections: ['Page', 'Card globals'],
+      role: 'dot-icon-orange-badge-1x1',
+      variant: { src: '/assets/dot-icons/orange-badge.svg' }
+    },
+    {
       name: 'Weather 1×1 (dot)',
       editSections: ['Page', 'Card globals'],
       role: 'dot-weather-1x1',
