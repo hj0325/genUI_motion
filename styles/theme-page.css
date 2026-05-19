@@ -2756,6 +2756,114 @@
     100% { opacity: 0; filter: blur(10px); }
   }
 
+  /* Orange badge card (212×149) */
+  .dot-orange-badge-card {
+    width: 212px;
+    height: 149px;
+    border-radius: 32px;
+    background: #171614;
+    display: block;
+    overflow: hidden;
+  }
+  .dot-orange-badge-card__inner {
+    position: relative;
+    width: 212px;
+    height: 148px;
+    padding: 20px 18px;
+    box-sizing: border-box;
+  }
+  .dot-orange-badge-card__text {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+  }
+  .dot-orange-badge-card__title {
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.24;
+    letter-spacing: -0.03em;
+    margin: 0 0 6px;
+    display: inline-block;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    background-image: linear-gradient(120deg, #FF9748 0%, #FFFFFF 42%, #FFDF81 100%);
+    background-size: 200% auto;
+    background-position: 150% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: obcTextShine 2.8s linear infinite;
+  }
+  .dot-orange-badge-card__subtitle {
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.34;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    background-image: linear-gradient(120deg, #FF9748 0%, #FFEEDA 65%, #FFFF93 100%);
+    background-size: 200% auto;
+    background-position: 150% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: obcTextShine 3.4s linear infinite;
+  }
+  @keyframes obcTextShine {
+    0% { background-position: 150% center; }
+    100% { background-position: -50% center; }
+  }
+  .dot-orange-badge-card__title.is-reduced,
+  .dot-orange-badge-card__subtitle.is-reduced {
+    animation: none;
+    background-image: none;
+    -webkit-text-fill-color: #FF9748;
+  }
+
+  /* Exclamation dots (bottom-right) */
+  .dot-orange-badge-card__exclaim {
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+    width: 14px;
+    height: 38px;
+    animation: obcExclaimBounce 1150ms cubic-bezier(0.2, 0, 0, 1) 0ms infinite;
+  }
+  .dot-orange-badge-card__dot {
+    position: absolute;
+    width: 4.2px;
+    height: 4.2px;
+    border-radius: 999px;
+    background: #FF9748;
+  }
+  /* Layout approximates the original SVG dot positions */
+  .dot-orange-badge-card__dot.d0 { left: 5px; top: 0px; }
+  .dot-orange-badge-card__dot.d1 { left: 5px; top: 6px; }
+  .dot-orange-badge-card__dot.d2 { left: 5px; top: 12px; }
+  .dot-orange-badge-card__dot.d3 { left: 5px; top: 18px; }
+  .dot-orange-badge-card__dot.d4 { left: 5px; top: 24px; }
+  .dot-orange-badge-card__dot.d5 { left: 5px; top: 36px; width: 4.2px; height: 4.2px; }
+  .dot-orange-badge-card__dot.d6 { left: 0px; top: 6px; }
+  .dot-orange-badge-card__dot.d7 { left: 10px; top: 6px; }
+  .dot-orange-badge-card__dot.d8 { left: 0px; top: 12px; }
+  .dot-orange-badge-card__dot.d9 { left: 10px; top: 12px; }
+  @keyframes obcExclaimBounce {
+    0%, 100% { transform: translateY(0); }
+    18% { transform: translateY(-2.6px); }
+    34% { transform: translateY(0.8px); }
+    52% { transform: translateY(-1.4px); }
+    72% { transform: translateY(0.2px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot-orange-badge-card__exclaim { animation: none !important; }
+    .dot-orange-badge-card__title,
+    .dot-orange-badge-card__subtitle { animation: none !important; }
+  }
+
   /* Weather 1×1 (82×82) */
   .dot-w11 {
     width: 82px;

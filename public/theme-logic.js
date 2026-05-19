@@ -77,6 +77,7 @@ function previewRectForCard(card) {
   if (role === 'dot-total-steps-2x1') return { w: 168, h: 82, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-temperature-1x1') return { w: 82, h: 82, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-icon-orange-badge-1x1') return { w: 82, h: 82, scale: TOOLKIT_PREVIEW_SCALE };
+  if (role === 'dot-orange-badge-card') return { w: 212, h: 149, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-weather-1x1') return { w: 82, h: 82, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-date-1x1-v1-1') return { w: 82, h: 82, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-date-1x1-v1-2') return { w: 82, h: 82, scale: TOOLKIT_PREVIEW_SCALE };

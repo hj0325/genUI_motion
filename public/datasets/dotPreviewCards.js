@@ -212,6 +212,12 @@
       variant: { src: '/assets/dot-icons/orange-badge.svg' }
     },
     {
+      name: 'Orange badge card (dot)',
+      editSections: ['Page', 'Card globals'],
+      role: 'dot-orange-badge-card',
+      variant: { src: '/assets/dot-orange-badge-card.svg' }
+    },
+    {
       name: 'Weather 1×1 (dot)',
       editSections: ['Page', 'Card globals'],
       role: 'dot-weather-1x1',

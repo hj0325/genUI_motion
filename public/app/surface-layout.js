@@ -4183,6 +4183,37 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
         '</div>';
     }
 
+    case 'dot-orange-badge-card': {
+      var bc = (comp && comp.variant) || {};
+      var reduceMotion = false;
+      try {
+        reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      } catch (_) {}
+      var title = bc.title || '보고서 수정 니즈를 포착';
+      var subtitle = bc.subtitle || '정산 보고서를 수정해 노트에 저장\n해드릴게요';
+      return '' +
+        '<div class="dot-card dot-orange-badge-card" data-state="' + (bc.state || 'idle') + '">' +
+          '<div class="dot-orange-badge-card__inner">' +
+            '<div class="dot-orange-badge-card__text">' +
+              '<div class="dot-orange-badge-card__title' + (reduceMotion ? ' is-reduced' : '') + '">' + title + '</div>' +
+              '<div class="dot-orange-badge-card__subtitle' + (reduceMotion ? ' is-reduced' : '') + '">' + String(subtitle || '').replace(/\\n/g, '<br/>') + '</div>' +
+            '</div>' +
+            '<div class="dot-orange-badge-card__exclaim" aria-hidden="true">' +
+              '<span class="dot-orange-badge-card__dot d0"></span>' +
+              '<span class="dot-orange-badge-card__dot d1"></span>' +
+              '<span class="dot-orange-badge-card__dot d2"></span>' +
+              '<span class="dot-orange-badge-card__dot d3"></span>' +
+              '<span class="dot-orange-badge-card__dot d4"></span>' +
+              '<span class="dot-orange-badge-card__dot d5"></span>' +
+              '<span class="dot-orange-badge-card__dot d6"></span>' +
+              '<span class="dot-orange-badge-card__dot d7"></span>' +
+              '<span class="dot-orange-badge-card__dot d8"></span>' +
+              '<span class="dot-orange-badge-card__dot d9"></span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
     case 'dot-weather-1x1': {
       var wv = (comp && comp.variant) || {};
       // Sun icon as dot-matrix inside 46.37×46.37 box, centered.
