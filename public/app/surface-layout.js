@@ -3643,27 +3643,23 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
 
     case 'dot-camera': {
       var camv = (comp && comp.variant) || {};
-      var img = camv.img || '';
-      var imgHtml = img ? '<img class="dot-cam__img" src="' + img + '" alt="" />' : '';
-      var camId = 'dotcam_' + Math.random().toString(36).slice(2, 9);
       return '' +
-        '<div class="dot-card dot-cam dot-cam--morph" data-state="' + (camv.state || 'idle') + '">' +
-          '<input class="dot-cam__toggle" type="checkbox" id="' + camId + '" aria-label="Open camera card" />' +
-          '<label class="dot-cam__trigger" for="' + camId + '" aria-hidden="true">' +
-            '<svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-              '<rect width="82" height="82" rx="41" fill="#FF7F24"/>' +
-              '<path d="M31.6667 53C30.9333 53 30.3056 52.7389 29.7833 52.2167C29.2611 51.6944 29 51.0667 29 50.3333V45H31.6667V50.3333H37V53H31.6667ZM45 53V50.3333H50.3333V45H53V50.3333C53 51.0667 52.7389 51.6944 52.2167 52.2167C51.6944 52.7389 51.0667 53 50.3333 53H45ZM29 37V31.6667C29 30.9333 29.2611 30.3056 29.7833 29.7833C30.3056 29.2611 30.9333 29 31.6667 29H37V31.6667H31.6667V37H29ZM50.3333 37V31.6667H45V29H50.3333C51.0667 29 51.6944 29.2611 52.2167 29.7833C52.7389 30.3056 53 30.9333 53 31.6667V37H50.3333Z" fill="#1A1D1C"/>' +
-              '<path fill-rule="evenodd" clip-rule="evenodd" d="M41 43.6665C42.4728 43.6665 43.6667 42.4726 43.6667 40.9998C43.6667 39.5271 42.4728 38.3332 41 38.3332C39.5273 38.3332 38.3334 39.5271 38.3334 40.9998C38.3334 42.4726 39.5273 43.6665 41 43.6665ZM41 46.3332C43.9455 46.3332 46.3334 43.9454 46.3334 40.9998C46.3334 38.0543 43.9455 35.6665 41 35.6665C38.0545 35.6665 35.6667 38.0543 35.6667 40.9998C35.6667 43.9454 38.0545 46.3332 41 46.3332Z" fill="#1A1D1C"/>' +
+        '<div class="dot-camera-motion" data-state="' + (camv.state || 'idle') + '">' +
+          '<div class="dot-camera-motion__intro" aria-hidden="true">' +
+            '<svg class="dot-camera-motion__introIcon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M6.66667 28C5.93333 28 5.30556 27.7389 4.78333 27.2167C4.26111 26.6944 4 26.0667 4 25.3333V20H6.66667V25.3333H12V28H6.66667ZM20 28V25.3333H25.3333V20H28V25.3333C28 26.0667 27.7389 26.6944 27.2167 27.2167C26.6944 27.7389 26.0667 28 25.3333 28H20ZM4 12V6.66667C4 5.93333 4.26111 5.30556 4.78333 4.78333C5.30556 4.26111 5.93333 4 6.66667 4H12V6.66667H6.66667V12H4ZM25.3333 12V6.66667H20V4H25.3333C26.0667 4 26.6944 4.26111 27.2167 4.78333C27.7389 5.30556 28 5.93333 28 6.66667V12H25.3333Z" fill="#1A1D1C"/>' +
+              '<path fill-rule="evenodd" clip-rule="evenodd" d="M16.0003 18.667C17.4731 18.667 18.667 17.4731 18.667 16.0003C18.667 14.5276 17.4731 13.3337 16.0003 13.3337C14.5276 13.3337 13.3337 14.5276 13.3337 16.0003C13.3337 17.4731 14.5276 18.667 16.0003 18.667ZM16.0003 21.3337C18.9458 21.3337 21.3337 18.9458 21.3337 16.0003C21.3337 13.0548 18.9458 10.667 16.0003 10.667C13.0548 10.667 10.667 13.0548 10.667 16.0003C10.667 18.9458 13.0548 21.3337 16.0003 21.3337Z" fill="#1A1D1C"/>' +
             '</svg>' +
-          '</label>' +
-          '<div class="dot-cam__body">' +
-            imgHtml +
-            '<div class="dot-cam__fade" aria-hidden="true"></div>' +
-            '<div class="dot-cam__shutter" aria-hidden="true"></div>' +
-            '<div class="dot-cam__expand" aria-hidden="true">' +
-              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                '<path d="M15 3h6v6h-2V6.41l-4.29 4.3-1.42-1.42L17.59 5H15V3Z" fill="#FFFFFF"/>' +
-                '<path d="M9 21H3v-6h2v3.59l4.29-4.3 1.42 1.42L6.41 19H9v2Z" fill="#FFFFFF"/>' +
+          '</div>' +
+          '<div class="camera-widget-key-color-ver" aria-hidden="true">' +
+            '<div class="camera-widget__img"></div>' +
+            '<div class="camera-widget__bg-gradient"></div>' +
+            '<div class="camera-widget__shot-button">' +
+              '<div class="camera-widget__shot-button-graphic"></div>' +
+            '</div>' +
+            '<div class="camera-widget__expand-button">' +
+              '<svg class="camera-widget__expand-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M23 8C22.7348 8 22.4804 8.10536 22.2929 8.29289C22.1054 8.48043 22 8.73478 22 9C22 9.26522 22.1054 9.51957 22.2929 9.70711C22.4804 9.89464 22.7348 10 23 10H24.586L20.293 14.293C20.1108 14.4816 20.01 14.7342 20.0123 14.9964C20.0146 15.2586 20.1198 15.5094 20.3052 15.6948C20.4906 15.8802 20.7414 15.9854 21.0036 15.9877C21.2658 15.99 21.5184 15.8892 21.707 15.707L26 11.414V13C26 13.2652 26.1054 13.5196 26.2929 13.7071C26.4804 13.8946 26.7348 14 27 14C27.2652 14 27.5196 13.8946 27.7071 13.7071C27.8946 13.5196 28 13.2652 28 13V9C28 8.73478 27.8946 8.48043 27.7071 8.29289C27.5196 8.10536 27.2652 8 27 8H23ZM10 24.586V23C10 22.7348 9.89464 22.4804 9.70711 22.2929C9.51957 22.1054 9.26522 22 9 22C8.73478 22 8.48043 22.1054 8.29289 22.2929C8.10536 22.4804 8 22.7348 8 23V27C8 27.2652 8.10536 27.5196 8.29289 27.7071C8.48043 27.8946 8.73478 28 9 28H13C13.2652 28 13.5196 27.8946 13.7071 27.7071C13.8946 27.5196 14 27.2652 14 27C14 26.7348 13.8946 26.4804 13.7071 26.2929C13.5196 26.1054 13.2652 26 13 26H11.414L15.707 21.707C15.8892 21.5184 15.99 21.2658 15.9877 21.0036C15.9854 20.7414 15.8802 20.4906 15.6948 20.3052C15.5094 20.1198 15.2586 20.0146 14.9964 20.0123C14.7342 20.01 14.4816 20.1108 14.293 20.293L10 24.586Z" fill="white"/>' +
               '</svg>' +
             '</div>' +
           '</div>' +
@@ -3681,7 +3677,7 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
       var barTrack = mv.barTrack != null ? mv.barTrack : 31.48;
       var expandedBarW = mv.expandedBarFull != null ? mv.expandedBarFull : 292;
       var expandedBarTrack = mv.expandedBarTrack != null ? mv.expandedBarTrack : 77;
-      var iconTitle = mv.iconTitle || '오늘 날씨에 딱 맞는\n플레이리스트';
+      var iconTitle = mv.iconTitle || '오늘 날씨엔 부드럽고 상쾌한\nConcierto가 좋을거같아요!';
       var iconSubtitle = mv.iconSubtitle || 'Jim Hall - Concierto';
       var iconHtml = window.renderAtomicForRole({
         role: 'dot-music-1x2-icon',
@@ -3692,76 +3688,41 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
           barTrack: expandedBarTrack
         }
       }, rect);
+      var compactTitle = mv.compactTitle || '햇빛이 쨍쨍한\n날씨에 듣기 좋은\n곡을 찾아드릴게요';
+      var compactIconHtml = '' +
+        '<svg class="dot-music1__noteSvg" width="32" height="32" viewBox="-2 -2 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+          '<circle cx="19.85" cy="3.49" r="3.5" fill="#000000"/><circle cx="27.98" cy="3.49" r="3.5" fill="#000000"/><circle cx="35.66" cy="3.49" r="3.5" fill="#000000"/><circle cx="44.25" cy="3.49" r="3.5" fill="#000000"/><circle cx="52.39" cy="3.49" r="3.5" fill="#000000"/><circle cx="60.52" cy="3.49" r="3.5" fill="#000000"/>' +
+          '<circle cx="19.85" cy="11.62" r="3.5" fill="#000000"/><circle cx="27.98" cy="11.62" r="3.5" fill="#000000"/><circle cx="35.66" cy="11.62" r="3.5" fill="#000000"/><circle cx="44.25" cy="11.62" r="3.5" fill="#000000"/><circle cx="52.39" cy="11.62" r="3.5" fill="#000000"/><circle cx="60.52" cy="11.62" r="3.5" fill="#000000"/>' +
+          '<circle cx="19.85" cy="19.76" r="3.5" fill="#000000"/><circle cx="27.98" cy="19.76" r="3.5" fill="#000000"/><circle cx="35.66" cy="19.76" r="3.5" fill="#000000"/><circle cx="44.25" cy="19.76" r="3.5" fill="#000000"/><circle cx="52.39" cy="19.76" r="3.5" fill="#000000"/><circle cx="60.52" cy="19.76" r="3.5" fill="#000000"/>' +
+          '<circle cx="19.85" cy="28.80" r="3.5" fill="#000000"/><circle cx="60.52" cy="28.80" r="3.5" fill="#000000"/>' +
+          '<circle cx="19.85" cy="36.94" r="3.5" fill="#000000"/><circle cx="60.52" cy="36.94" r="3.5" fill="#000000"/>' +
+          '<circle cx="19.85" cy="45.18" r="3.5" fill="#000000"/><circle cx="60.52" cy="45.18" r="3.5" fill="#000000"/>' +
+          '<circle cx="3.49" cy="53.32" r="3.5" fill="#000000"/><circle cx="11.62" cy="53.32" r="3.5" fill="#000000"/><circle cx="19.85" cy="53.32" r="3.5" fill="#000000"/><circle cx="44.25" cy="53.32" r="3.5" fill="#000000"/><circle cx="52.39" cy="53.32" r="3.5" fill="#000000"/><circle cx="60.52" cy="53.32" r="3.5" fill="#000000"/>' +
+          '<circle cx="3.49" cy="61.45" r="3.5" fill="#000000"/><circle cx="11.62" cy="61.45" r="3.5" fill="#000000"/><circle cx="44.25" cy="61.45" r="3.5" fill="#000000"/><circle cx="52.39" cy="61.45" r="3.5" fill="#000000"/>' +
+        '</svg>';
+      var compactHtml = '' +
+        '<div class="dot-music1__player" aria-hidden="true">' +
+          '<div class="dot-music1__singer-name">' + String(compactTitle).replace(/\n/g, '<br/>') + '</div>' +
+          '<div class="dot-music1__iconBg"></div>' +
+          '<div class="dot-music1__musicIcon">' + compactIconHtml + '</div>' +
+        '</div>';
+      var expandedIconHtml = compactIconHtml.replace('dot-music1__noteSvg', 'dot-music1__secondNoteSvg');
+      var expandedHtml = '' +
+        '<div class="dot-music1__secondPlayer">' +
+          '<div class="dot-music1__secondIconBg">' +
+            '<div class="dot-music1__secondMusicIcon">' + expandedIconHtml + '</div>' +
+          '</div>' +
+          '<div class="dot-music1__secondTitle">검색중이에요</div>' +
+        '</div>';
       var isTabRoot = window.currentSurfaceType === window.SURFACE_TYPES.TAB_ROOT;
       var orangeClass = isTabRoot ? ' is-orange' : '';
       return '' +
         '<div class="dot-card dot-music dot-music1' + orangeClass + '" data-state="' + (mv.state || 'idle') + '">' +
-          '<div class="dot-music1__compact">' +
-            '<div class="dot-music1__top">' +
-              '<div class="dot-music1__artist">' + artist + '</div>' +
-              '<div class="dot-music1__album">' + album + '</div>' +
-            '</div>' +
-            '<div class="dot-music__bottom">' +
-              '<div class="dot-music__song">' + song + '</div>' +
-              '<div class="dot-music__timeInfo">' +
-                '<div class="dot-music__timeRow">' +
-                  '<div class="dot-music__time dot-music__time--current">' + current + '</div>' +
-                  '<div class="dot-music__time dot-music__time--remaining">' + remaining + '</div>' +
-                '</div>' +
-                '<div class="dot-music__bar" style="--bar-w:' + barW + 'px;--bar-track:' + barTrack + 'px;">' +
-                  '<div class="dot-music__barFill" aria-hidden="true"></div>' +
-                  '<div class="dot-music__barTrack" aria-hidden="true"></div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
+          '<div class="dot-music1__compact dot-music1__compact--layout">' +
+            compactHtml +
           '</div>' +
-          '<div class="dot-music1__expanded dot-music2 dot-music2--actions" aria-hidden="true">' +
-            '<div class="dot-music2__top">' +
-              '<div class="dot-music2__artistBlock">' +
-                '<div class="dot-music2__artist">' + artist + '</div>' +
-                '<div class="dot-music2__album">' + album + '</div>' +
-              '</div>' +
-              '<div class="dot-music2__btnUnit" aria-hidden="true">' +
-                '<div class="dot-music2__btn">' +
-                  '<svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                    '<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.53L12 21.35Z" fill="#000000"/>' +
-                  '</svg>' +
-                '</div>' +
-                '<div class="dot-music2__btn">' +
-                  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-                    '<path d="M3 5.5h18v13H3v-13Z" stroke="#000000" stroke-width="2" fill="none" />' +
-                    '<path d="M5 17c1.9 0 3.6.8 4.8 2" stroke="#000000" stroke-width="2" stroke-linecap="round" fill="none" />' +
-                    '<path d="M5 13.5c3.1 0 5.8 1.3 7.8 3.2" stroke="#000000" stroke-width="2" stroke-linecap="round" fill="none" />' +
-                  '</svg>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
-            '<div class="dot-music__bottom dot-music2__bottom">' +
-              '<div class="dot-music2__playRow">' +
-                '<div class="dot-music__song">' + song + '</div>' +
-                '<div class="dot-music2__eq" aria-hidden="true">' +
-                  '<div class="dot-music2__eqCol is-tall">' +
-                    '<span></span><span></span><span></span><span></span><span></span>' +
-                  '</div>' +
-                  '<div class="dot-music2__eqCol is-mid">' +
-                    '<span></span><span></span><span></span>' +
-                  '</div>' +
-                  '<div class="dot-music2__eqCol is-small">' +
-                    '<span></span>' +
-                  '</div>' +
-                '</div>' +
-              '</div>' +
-              '<div class="dot-music__timeInfo dot-music__timeInfo--wide">' +
-                '<div class="dot-music__timeRow dot-music__timeRow--wide">' +
-                  '<div class="dot-music__time dot-music__time--current">' + current + '</div>' +
-                  '<div class="dot-music__time dot-music__time--remaining">' + remaining + '</div>' +
-                '</div>' +
-                '<div class="dot-music__bar dot-music__bar--wide" style="--bar-w:' + expandedBarW + 'px;--bar-track:' + expandedBarTrack + 'px;">' +
-                  '<div class="dot-music__barFill" aria-hidden="true"></div>' +
-                  '<div class="dot-music__barTrack" aria-hidden="true"></div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
+          '<div class="dot-music1__expanded" aria-hidden="true">' +
+            expandedHtml +
           '</div>' +
           '<div class="dot-music1__icon" aria-hidden="true">' + iconHtml + '</div>' +
         '</div>';
@@ -3831,7 +3792,7 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
 
     case 'dot-music-1x2-icon': {
       var mv3 = (comp && comp.variant) || {};
-      var title3 = (mv3.title || '오늘 날씨에 딱 맞는\n플레이리스트');
+      var title3 = (mv3.title || '오늘 날씨엔 부드럽고 상쾌한\nConcierto가 좋을거같아요!');
       var subtitle3 = (mv3.subtitle || 'Jim Hall - Concierto');
       var barW3 = mv3.barFull != null ? mv3.barFull : 292;
       var barTrack3 = mv3.barTrack != null ? mv3.barTrack : 77;
@@ -3889,7 +3850,24 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
             '<div class="dot-music3__title">' + safeTitle + '</div>' +
           '</div>' +
           '<div class="dot-music__bottom dot-music3__bottom">' +
-            '<div class="dot-music3__name">' + subtitle3 + '</div>' +
+            '<div class="dot-music3__playRow">' +
+              '<div class="dot-music3__name">Concierto</div>' +
+              '<div class="dot-music2__eq dot-music3__eq" aria-hidden="true">' +
+                '<div class="dot-music2__eqCol is-tall">' +
+                  '<span></span><span></span><span></span><span></span><span></span>' +
+                '</div>' +
+                '<div class="dot-music2__eqCol is-mid">' +
+                  '<span></span><span></span><span></span>' +
+                '</div>' +
+                '<div class="dot-music2__eqCol is-small">' +
+                  '<span></span>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="dot-music__timeRow dot-music3__timeRow">' +
+              '<div class="dot-music__time dot-music__time--current">0:40</div>' +
+              '<div class="dot-music__time dot-music__time--remaining">-1:10</div>' +
+            '</div>' +
             '<div class="dot-music__bar dot-music__bar--wide dot-music3__bar" style="--bar-w:' + barW3 + 'px;--bar-track:' + barTrack3 + 'px;">' +
               '<div class="dot-music__barFill" aria-hidden="true"></div>' +
               '<div class="dot-music__barTrack" aria-hidden="true"></div>' +
@@ -4067,9 +4045,9 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
       var sv = (comp && comp.variant) || {};
       var date = sv.date || '13 May';
       var items = Array.isArray(sv.items) ? sv.items : [
-        { text: 'Wild Life', tone: 'muted' },
+        { text: 'Wild Life', tone: 'strong' },
         { text: 'Blue Mountains', tone: 'muted' },
-        { text: 'Darling Harbour', tone: 'accent' },
+        { text: 'Darling Harbour', tone: 'muted' },
         { text: 'Opera House', tone: 'muted' }
       ];
       while (items.length < 4) items.push({ text: 'Schedule item', tone: 'muted' });
@@ -4080,19 +4058,19 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
         return '' +
           '<div class="dot-sch__row">' +
             '<span class="dot-sch__bullet ' + bulletClass + '" aria-hidden="true"></span>' +
-            '<span class="dot-sch__text ' + textClass + '">' + (it.text || '') + '</span>' +
+            '<span class="dot-sch__text ' + textClass + '" data-text="' + (it.text || '') + '">' + (it.text || '') + '</span>' +
           '</div>';
       };
       var expandedItems = Array.isArray(sv.expandedItems) ? sv.expandedItems : [
-        { text: 'Design standup', time: '10:00', tone: 'muted' },
-        { text: 'Coffee w/ Sarah', time: '14:00', tone: 'muted' },
-        { text: 'Run 5km', time: '18:30', tone: 'accent' },
-        { text: 'Dinner reservation', time: '20:00', tone: 'strong' }
+        { text: 'Darling Harbour', time: '9:00', note: 'Need to arrive until', tone: 'strong' },
+        { text: 'Wild Life', time: '10:00', tone: 'muted' },
+        { text: 'Blue Mountains', time: '14:00', tone: 'muted' },
+        { text: 'Opera House', time: '18:30', tone: 'muted' }
       ];
       var expandedHtml = window.renderAtomicForRole({
         role: 'dot-schedule-4x2',
         variant: {
-          date: sv.expandedDate || 'May 15',
+          date: sv.expandedDate || '13 May',
           items: expandedItems
         }
       }, rect);
@@ -4123,10 +4101,12 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
         var bulletClass = tone === 'accent' ? 'is-accent' : 'is-dark';
         var textClass = tone === 'accent' ? 'is-accent' : (tone === 'strong' ? 'is-strong' : 'is-muted');
         var timeClass = tone === 'strong' ? 'is-strong' : 'is-time';
+        var noteHtml = it.note ? '<span class="dot-sch__time-note">' + it.note + '</span>' : '';
         return '' +
-          '<div class="dot-sch__row dot-sch__row--wide">' +
+          '<div class="dot-sch__row dot-sch__row--wide' + (it.note ? ' dot-sch__row--has-note' : '') + '">' +
             '<span class="dot-sch__bullet ' + bulletClass + '" aria-hidden="true"></span>' +
             '<span class="dot-sch__text ' + textClass + '">' + (it.text || '') + '</span>' +
+            noteHtml +
             '<span class="dot-sch__time ' + timeClass + '">' + (it.time || '') + '</span>' +
           '</div>';
       };

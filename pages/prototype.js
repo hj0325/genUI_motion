@@ -347,7 +347,7 @@ export default function PrototypePage() {
       <Script src="/app/atomics.js" strategy="beforeInteractive" />
       <Script src="/app/design-doc.js" strategy="beforeInteractive" />
       <Script src="/app/interaction-state.js" strategy="beforeInteractive" />
-      <Script src="/app/surface-layout.js?v=runpanel-dot-level-1" strategy="beforeInteractive" />
+      <Script src="/app/surface-layout.js?v=dot-music-preview-dot-delay-1" strategy="beforeInteractive" />
       <Script src="/app/settings.js" strategy="beforeInteractive" />
       <Script src="/app/canvas.js" strategy="beforeInteractive" />
       <Script src="/app/rules-renderer.js" strategy="beforeInteractive" />

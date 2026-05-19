@@ -99,7 +99,7 @@
       name: 'Camera (dot)',
       editSections: ['Page', 'Card globals'],
       role: 'dot-camera',
-      variant: { img: '/assets/dot-camera/camera.png' }
+      variant: {}
     },
     {
       name: 'Running coach (dot)',
@@ -146,7 +146,7 @@
       editSections: ['Page', 'Card globals'],
       role: 'dot-music-1x2-icon',
       variant: {
-        title: '오늘 날씨에 딱 맞는\n플레이리스트',
+        title: '오늘 날씨엔 부드럽고 상쾌한\nConcierto가 좋을거같아요!',
         subtitle: 'Jim Hall - Concierto',
         barFull: 292,
         barTrack: 77
@@ -170,10 +170,11 @@
       role: 'dot-schedule-2x2',
       variant: {
         date: '13 May',
+        expandedDate: '13 May',
         items: [
-          { text: 'Wild Life', tone: 'muted' },
+          { text: 'Wild Life', tone: 'strong' },
           { text: 'Blue Mountains', tone: 'muted' },
-          { text: 'Darling Harbour', tone: 'accent' },
+          { text: 'Darling Harbour', tone: 'muted' },
           { text: 'Opera House', tone: 'muted' }
         ]
       }

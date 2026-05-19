@@ -66,7 +66,7 @@ function previewRectForCard(card) {
   if (role === 'dot-gallery-img') return { w: 168, h: 168, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-gallery-frame1') return { w: 168, h: 168, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-gallery-frame3') return { w: 162, h: 218, scale: TOOLKIT_PREVIEW_SCALE };
-  if (role === 'dot-camera') return { w: 164, h: 246, scale: TOOLKIT_PREVIEW_SCALE };
+  if (role === 'dot-camera') return { w: 168, h: 340, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-music-1x1') return { w: 168, h: 168, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-music-1x2-actions') return { w: 340, h: 168, scale: TOOLKIT_PREVIEW_SCALE };
   if (role === 'dot-music-1x2-icon') return { w: 340, h: 168, scale: TOOLKIT_PREVIEW_SCALE };
@@ -1226,6 +1226,11 @@ function renderPreviewGrid() {
       else cardRoot.style.height = 'auto';
       cardRoot.style.maxWidth = 'none';
       cardRoot.style.flex = 'none';
+      if (card && card.role === 'dot-camera') {
+        cardRoot.style.width = '';
+        cardRoot.style.minHeight = '';
+        cardRoot.style.height = '';
+      }
     }
     stripGradientsForFlat(stage);
     normalizeFlatTextForScheme(stage);
@@ -2540,7 +2545,7 @@ document.getElementById('preview-bg-swatches')?.addEventListener('click', functi
     stage.innerHTML = html;
     
     // Reset state to idle
-    const cardEl = stage.querySelector('.dot-card, .focus-block, .notif-card, .now-bar, .media-card, .progress-track');
+    const cardEl = stage.querySelector('.dot-camera-motion, .dot-card, .focus-block, .notif-card, .now-bar, .media-card, .progress-track');
     if (cardEl) cardEl.setAttribute('data-state', 'idle');
 
     // Detail controls: dot-time-matrix time scrubber

@@ -408,12 +408,234 @@
   .dot-music1__compact {
     opacity: 1;
   }
+  .dot-music1__compact--layout {
+    inset: 0;
+    width: 168px;
+    height: 168px;
+    padding: 0;
+  }
+  .dot-music1__player {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 168px;
+    height: 168px;
+    padding: 20px 24px;
+    gap: 34.74px;
+    background: #FF7F24;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  .dot-music1__player::after {
+    content: '검색중이에요';
+    position: absolute;
+    width: 78px;
+    height: 18px;
+    left: 50px;
+    top: 128px;
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    background: linear-gradient(90deg, #000000 0%, #7F7F7F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dot-music1__player::before {
+    content: '';
+    position: absolute;
+    inset: -64px;
+    opacity: 0;
+    background: linear-gradient(137.88deg, #FF7F24 2.12%, #FFCAA4 94.17%);
+    border-radius: 32px;
+    pointer-events: none;
+    transform: translate3d(-18px, -18px, 0);
+    will-change: opacity, transform;
+  }
+  .detail-stage .dot-music1__compact--layout .dot-music1__player {
+    animation: none;
+  }
+  .detail-stage .dot-music1__compact--layout .dot-music1__player::before {
+    animation:
+      dotMusicSecondBgIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      dotMusicSecondBgFlow 9s linear 5s forwards;
+  }
+  .detail-stage .dot-music1__compact--layout .dot-music1__player::after {
+    animation:
+      dotMusicSecondTextIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      dotMusicSecondTitleGradient 2.2s linear 6.6s infinite;
+  }
+  .dot-music1__singer-name {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    order: 0;
+    width: 119px;
+    height: 57px;
+    margin: 0 auto;
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    background: linear-gradient(105.31deg, #000000 0.42%, #000000 73.94%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .detail-stage .dot-music1__singer-name {
+    animation: dotMusicSingerGradient 2.2s linear 3s infinite;
+  }
+  .detail-stage .dot-music1__compact--layout .dot-music1__singer-name {
+    animation:
+      dotMusicSingerGradient 2.2s linear 3s infinite,
+      dotMusicFirstTextOut 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .dot-music1__iconBg {
+    position: absolute;
+    z-index: 1;
+    width: 53.86px;
+    height: 53.86px;
+    left: 24px;
+    top: 94.14px;
+    background: #FF9950;
+    border-radius: 83.3167px;
+  }
+  .dot-music1__musicIcon {
+    position: absolute;
+    z-index: 2;
+    width: 24.87px;
+    height: 24.62px;
+    left: 38.31px;
+    top: 108.45px;
+  }
+  .dot-music1__noteSvg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .dot-music1__noteSvg circle {
+    fill: #000000;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .detail-stage .dot-music1__noteSvg circle {
+    animation:
+      dotMusicIconDotSweep 1.8s steps(1, end) 3s 1 forwards,
+      dotMusicIconDotSweep 1.8s steps(1, end) 6.4s infinite;
+  }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(1) { animation-delay: 3.000s, 6.400s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(7) { animation-delay: 3.018s, 6.418s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(2) { animation-delay: 3.036s, 6.436s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(3) { animation-delay: 3.054s, 6.454s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(8) { animation-delay: 3.072s, 6.472s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(13) { animation-delay: 3.090s, 6.490s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(9) { animation-delay: 3.108s, 6.508s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(14) { animation-delay: 3.126s, 6.526s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(4) { animation-delay: 3.144s, 6.544s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(19) { animation-delay: 3.162s, 6.562s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(15) { animation-delay: 3.180s, 6.580s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(10) { animation-delay: 3.198s, 6.598s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(5) { animation-delay: 3.216s, 6.616s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(21) { animation-delay: 3.234s, 6.634s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(25) { animation-delay: 3.252s, 6.652s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(16) { animation-delay: 3.270s, 6.670s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(11) { animation-delay: 3.288s, 6.688s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(6) { animation-delay: 3.306s, 6.706s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(31) { animation-delay: 3.324s, 6.724s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(26) { animation-delay: 3.342s, 6.742s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(23) { animation-delay: 3.360s, 6.760s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(12) { animation-delay: 3.378s, 6.778s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(17) { animation-delay: 3.396s, 6.796s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(32) { animation-delay: 3.414s, 6.814s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(27) { animation-delay: 3.432s, 6.832s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(18) { animation-delay: 3.450s, 6.850s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(20) { animation-delay: 3.468s, 6.868s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(22) { animation-delay: 3.486s, 6.886s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(28) { animation-delay: 3.504s, 6.904s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(33) { animation-delay: 3.522s, 6.922s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(24) { animation-delay: 3.540s, 6.940s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(29) { animation-delay: 3.558s, 6.958s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(34) { animation-delay: 3.576s, 6.976s; }
+  .detail-stage .dot-music1__noteSvg circle:nth-child(30) { animation-delay: 3.594s, 6.994s; }
+  .detail-stage .dot-music1__compact--layout .dot-music1__iconBg {
+    animation: dotMusicFirstIconBgToSecond 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .detail-stage .dot-music1__compact--layout .dot-music1__musicIcon {
+    animation: dotMusicFirstIconToSecond 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
   .dot-music1__expanded {
     inset: 0;
-    width: 340px;
+    width: 168px;
     height: 168px;
     opacity: 0;
     pointer-events: none;
+  }
+  .dot-music1__secondPlayer {
+    position: relative;
+    width: 168px;
+    height: 168px;
+    background: linear-gradient(137.88deg, #FF7F24 2.12%, #FFCAA4 94.17%);
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  .dot-music1__secondIconBg {
+    position: absolute;
+    width: 96.77px;
+    height: 96.77px;
+    left: 35.08px;
+    top: 19.54px;
+    background: linear-gradient(306.8deg, #FF6A00 -2.23%, #FFCE73 90.04%);
+    border-radius: 149.684px;
+    opacity: 0;
+  }
+  .dot-music1__secondMusicIcon {
+    position: absolute;
+    width: 44.69px;
+    height: 44.23px;
+    left: 24.98px;
+    top: 25.99px;
+    opacity: 0;
+  }
+  .dot-music1__secondNoteSvg {
+    display: block;
+    width: 44.69px;
+    height: 44.23px;
+  }
+  .dot-music1__secondNoteSvg circle {
+    fill: #000000;
+  }
+  .dot-music1__secondTitle {
+    position: absolute;
+    width: 78px;
+    height: 18px;
+    left: 50px;
+    top: 128px;
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #000000 0%, #7F7F7F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .detail-stage .dot-music1__secondTitle {
+    animation: dotMusicSecondTitleGradient 2.2s linear 6.6s infinite;
   }
   .dot-music1__icon {
     position: absolute;
@@ -461,20 +683,20 @@
     background: #000000;
   }
   .detail-stage .dot-music1 {
-    width: 340px;
-    clip-path: inset(0 172px 0 0 round 32px);
-    animation: dotMusicRevealCard 2.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: clip-path;
+    width: 168px;
+    clip-path: inset(0 0 0 0 round 32px);
+    animation: dotMusicRevealCard 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: width, clip-path;
   }
   .detail-stage .dot-music1__compact {
-    width: 120px;
-    animation: dotMusicCompactOut 2.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    width: 168px;
+    animation: dotMusicCompactOut 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .detail-stage .dot-music1__expanded {
-    animation: dotMusicExpandedIn 5.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotMusicExpandedIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .detail-stage .dot-music1__icon {
-    animation: dotMusicIconIn 5.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotMusicIconIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .detail-stage .dot-music1__icon .dot-music3__noteSvg circle {
     opacity: 0;
@@ -561,21 +783,81 @@
   .preview-cell .dot-music3__noteSvg circle:nth-child(34) { animation-delay: 0.676s, 1.74s; }
   .preview-cell .dot-music3__noteSvg circle:nth-child(30) { animation-delay: 0.694s, 1.76s; }
   .preview-cell .dot-music1 {
-    width: 340px !important;
-    clip-path: inset(0 172px 0 0 round 32px);
-    animation: dotMusicPreviewReveal 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-    will-change: clip-path;
+    width: 168px;
+    clip-path: inset(0 0 0 0 round 32px);
+    animation: dotMusicPreviewRevealCardHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: width, clip-path;
   }
   .preview-cell .dot-music1__compact {
-    width: 120px;
-    animation: dotMusicPreviewCompact 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    width: 168px;
+    animation: dotMusicPreviewCompactHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .preview-cell .dot-music1__expanded {
-    animation: dotMusicPreviewActions 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotMusicExpandedIn 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .preview-cell .dot-music1__icon {
-    animation: dotMusicPreviewIcon 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotMusicPreviewIconHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
+  .preview-cell .dot-music1__compact--layout .dot-music1__player::before {
+    animation:
+      dotMusicPreviewSecondBgInHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotMusicSecondBgFlow 9s linear 5s infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__player::after {
+    animation:
+      dotMusicPreviewSecondTextInHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotMusicSecondTitleGradient 2.2s linear 6.6s infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__singer-name {
+    animation:
+      dotMusicSingerGradient 2.2s linear 3s infinite,
+      dotMusicPreviewFirstTextOutHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__iconBg {
+    animation: dotMusicPreviewFirstIconBgHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__compact--layout .dot-music1__musicIcon {
+    animation: dotMusicPreviewFirstIconHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-music1__noteSvg circle {
+    animation:
+      dotMusicIconDotSweep 1.8s steps(1, end) 3s 1 forwards,
+      dotMusicIconDotSweep 1.8s steps(1, end) 7.4s infinite;
+  }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(1) { animation-delay: 3.000s, 7.400s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(7) { animation-delay: 3.018s, 7.418s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(2) { animation-delay: 3.036s, 7.436s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(3) { animation-delay: 3.054s, 7.454s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(8) { animation-delay: 3.072s, 7.472s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(13) { animation-delay: 3.090s, 7.490s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(9) { animation-delay: 3.108s, 7.508s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(14) { animation-delay: 3.126s, 7.526s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(4) { animation-delay: 3.144s, 7.544s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(19) { animation-delay: 3.162s, 7.562s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(15) { animation-delay: 3.180s, 7.580s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(10) { animation-delay: 3.198s, 7.598s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(5) { animation-delay: 3.216s, 7.616s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(21) { animation-delay: 3.234s, 7.634s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(25) { animation-delay: 3.252s, 7.652s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(16) { animation-delay: 3.270s, 7.670s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(11) { animation-delay: 3.288s, 7.688s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(6) { animation-delay: 3.306s, 7.706s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(31) { animation-delay: 3.324s, 7.724s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(26) { animation-delay: 3.342s, 7.742s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(23) { animation-delay: 3.360s, 7.760s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(12) { animation-delay: 3.378s, 7.778s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(17) { animation-delay: 3.396s, 7.796s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(32) { animation-delay: 3.414s, 7.814s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(27) { animation-delay: 3.432s, 7.832s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(18) { animation-delay: 3.450s, 7.850s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(20) { animation-delay: 3.468s, 7.868s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(22) { animation-delay: 3.486s, 7.886s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(28) { animation-delay: 3.504s, 7.904s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(33) { animation-delay: 3.522s, 7.922s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(24) { animation-delay: 3.540s, 7.940s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(29) { animation-delay: 3.558s, 7.958s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(34) { animation-delay: 3.576s, 7.976s; }
+  .preview-cell .dot-music1__noteSvg circle:nth-child(30) { animation-delay: 3.594s, 7.994s; }
   .preview-cell .stage-scale > .dot-music2--actions .dot-music2__btn {
     opacity: 0;
     transform: translateX(14px) scale(0.96);
@@ -610,8 +892,8 @@
     transform: translateX(14px) scale(0.96);
     animation: dotMusicButtonIn 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .detail-stage .dot-music1__expanded .dot-music2__btn:nth-child(1) { animation-delay: 2.96s; }
-  .detail-stage .dot-music1__expanded .dot-music2__btn:nth-child(2) { animation-delay: 3.22s; }
+  .detail-stage .dot-music1__expanded .dot-music2__btn:nth-child(1) { animation-delay: 6.18s; }
+  .detail-stage .dot-music1__expanded .dot-music2__btn:nth-child(2) { animation-delay: 6.44s; }
   .detail-stage .dot-music1__expanded .dot-music2__eq {
     opacity: 1;
     transform: none;
@@ -621,57 +903,55 @@
     transform: translateX(-1px) scale(0.65);
     animation: dotMusicEqDotIn 95ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(1) { animation-delay: 3.24s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(2) { animation-delay: 3.28s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(3) { animation-delay: 3.32s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(4) { animation-delay: 3.36s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(5) { animation-delay: 3.40s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(1) { animation-delay: 3.44s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(2) { animation-delay: 3.48s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(3) { animation-delay: 3.52s; }
-  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-small span:nth-child(1) { animation-delay: 3.56s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(1) { animation-delay: 6.46s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(2) { animation-delay: 6.50s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(3) { animation-delay: 6.54s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(4) { animation-delay: 6.58s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-tall span:nth-child(5) { animation-delay: 6.62s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(1) { animation-delay: 6.66s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(2) { animation-delay: 6.70s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-mid span:nth-child(3) { animation-delay: 6.74s; }
+  .detail-stage .dot-music1__expanded .dot-music2__eqCol.is-small span:nth-child(1) { animation-delay: 6.78s; }
   .detail-stage .dot-music1__expanded .dot-music__timeInfo--wide,
   .detail-stage .dot-music1__expanded .dot-music__timeRow--wide,
   .detail-stage .dot-music1__expanded .dot-music__bar--wide {
     width: 120px;
-    animation: dotMusicBarGrow 2.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotMusicBarGrow 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .detail-stage .dot-music1__expanded .dot-music__bar--wide .dot-music__barTrack {
     width: 31.48px;
-    animation: dotMusicBarTrackGrow 2.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotMusicBarTrackGrow 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes dotMusicRevealCard {
-    0%, 74% { clip-path: inset(0 172px 0 0 round 32px); }
-    100% { clip-path: inset(0 0 0 0 round 32px); }
+    0%, 96% {
+      width: 168px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+    100% {
+      width: 340px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
   }
   @keyframes dotMusicCompactOut {
-    0%, 72% {
+    0%, 96% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
     100% {
       opacity: 0;
-      transform: translateX(-8px) scale(0.98);
+      transform: translateX(0) scale(1);
     }
   }
   @keyframes dotMusicExpandedIn {
-    0%, 34% {
+    0%, 100% {
       opacity: 0;
-      transform: translateX(6px);
-    }
-    50%, 90% {
-      opacity: 1;
       transform: translateX(0);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-6px) scale(0.985);
     }
   }
   @keyframes dotMusicIconIn {
-    0%, 90% {
+    0%, 96% {
       opacity: 0;
-      transform: translateX(8px) scale(0.985);
+      transform: translateX(0) scale(1);
     }
     100% {
       opacity: 1;
@@ -698,10 +978,190 @@
       transform: translateX(0) scale(1);
     }
   }
+  @keyframes dotMusicFirstTextOut {
+    0%, 41.67% {
+      opacity: 1;
+    }
+    52%, 100% {
+      opacity: 0;
+    }
+  }
+  @keyframes dotMusicSecondBgIn {
+    0%, 41.67% { opacity: 0; }
+    60%, 96% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes dotMusicSecondBgFlow {
+    0% {
+      transform: translate3d(-18px, -18px, 0);
+    }
+    100% {
+      transform: translate3d(18px, 18px, 0);
+    }
+  }
+  @keyframes dotMusicSecondTextIn {
+    0%, 55% {
+      opacity: 0;
+    }
+    64%, 96% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes dotMusicFirstIconBgToSecond {
+    0%, 41.67% {
+      width: 53.86px;
+      height: 53.86px;
+      left: 24px;
+      top: 94.14px;
+      border-radius: 83.3167px;
+      background: #FF9950;
+      opacity: 1;
+    }
+    60%, 100% {
+      width: 96.77px;
+      height: 96.77px;
+      left: 35.08px;
+      top: 19.54px;
+      border-radius: 149.684px;
+      background: linear-gradient(306.8deg, #FF6A00 -2.23%, #FFCE73 90.04%);
+      opacity: 1;
+    }
+  }
+  @keyframes dotMusicFirstIconToSecond {
+    0%, 41.67% {
+      width: 24.87px;
+      height: 24.62px;
+      left: 38.31px;
+      top: 108.45px;
+      opacity: 1;
+    }
+    60%, 100% {
+      width: 44.69px;
+      height: 44.23px;
+      left: 60.06px;
+      top: 45.53px;
+      opacity: 1;
+    }
+  }
+  @keyframes dotMusicSingerGradient {
+    0% {
+      background-image: repeating-linear-gradient(105.31deg, #000000 0px, #000000 44px, rgba(79, 79, 79, 0.3) 64px, #000000 88px, #000000 119px);
+      background-position: 0 50%;
+      background-size: 119px 100%;
+    }
+    100% {
+      background-image: repeating-linear-gradient(105.31deg, #000000 0px, #000000 44px, rgba(79, 79, 79, 0.3) 64px, #000000 88px, #000000 119px);
+      background-position: 119px 50%;
+      background-size: 119px 100%;
+    }
+  }
+  @keyframes dotMusicSecondTitleGradient {
+    0% {
+      background-image: repeating-linear-gradient(90deg, #000000 0px, #000000 28px, #7F7F7F 46px, #000000 78px);
+      background-position: 0 50%;
+      background-size: 78px 100%;
+    }
+    100% {
+      background-image: repeating-linear-gradient(90deg, #000000 0px, #000000 28px, #7F7F7F 46px, #000000 78px);
+      background-position: 78px 50%;
+      background-size: 78px 100%;
+    }
+  }
+  @keyframes dotMusicIconDotSweep {
+    0%, 7% {
+      opacity: 0;
+      transform: translateX(-1px) scale(0.7);
+    }
+    8%, 100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
   @keyframes dotMusicPreviewReveal {
     0%, 28% { clip-path: inset(0 172px 0 0 round 32px); }
     42%, 94% { clip-path: inset(0 0 0 0 round 32px); }
     100% { clip-path: inset(0 172px 0 0 round 32px); }
+  }
+  @keyframes dotMusicPreviewRevealCardHold {
+    0%, 63.16%, 100% {
+      width: 168px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+    66.32%, 89.47% {
+      width: 340px;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+  }
+  @keyframes dotMusicPreviewCompactHold {
+    0%, 63.16%, 100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+    66.32%, 89.47% {
+      opacity: 0;
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes dotMusicPreviewIconHold {
+    0%, 63.16%, 100% {
+      opacity: 0;
+      transform: translateX(0) scale(1);
+    }
+    66.32%, 89.47% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes dotMusicPreviewFirstTextOutHold {
+    0%, 26.32%, 100% { opacity: 1; }
+    32.63%, 89.47% { opacity: 0; }
+  }
+  @keyframes dotMusicPreviewSecondBgInHold {
+    0%, 26.32%, 66.32%, 100% { opacity: 0; }
+    37.89%, 63.16% { opacity: 1; }
+  }
+  @keyframes dotMusicPreviewSecondTextInHold {
+    0%, 34.74%, 66.32%, 100% { opacity: 0; }
+    41.05%, 63.16% { opacity: 1; }
+  }
+  @keyframes dotMusicPreviewFirstIconBgHold {
+    0%, 26.32%, 100% {
+      width: 53.86px;
+      height: 53.86px;
+      left: 24px;
+      top: 94.14px;
+      border-radius: 83.3167px;
+      background: #FF9950;
+      opacity: 1;
+    }
+    37.89%, 89.47% {
+      width: 96.77px;
+      height: 96.77px;
+      left: 35.08px;
+      top: 19.54px;
+      border-radius: 149.684px;
+      background: linear-gradient(306.8deg, #FF6A00 -2.23%, #FFCE73 90.04%);
+      opacity: 1;
+    }
+  }
+  @keyframes dotMusicPreviewFirstIconHold {
+    0%, 26.32%, 100% {
+      width: 24.87px;
+      height: 24.62px;
+      left: 38.31px;
+      top: 108.45px;
+      opacity: 1;
+    }
+    37.89%, 89.47% {
+      width: 44.69px;
+      height: 44.23px;
+      left: 60.06px;
+      top: 45.53px;
+      opacity: 1;
+    }
   }
   @keyframes dotMusicPreviewCompact {
     0%, 26% {
@@ -780,11 +1240,11 @@
     }
   }
   @keyframes dotMusicBarGrow {
-    0%, 74% { width: 120px; }
+    0%, 75% { width: 120px; }
     100% { width: 292px; }
   }
   @keyframes dotMusicBarTrackGrow {
-    0%, 74% { width: 31.48px; }
+    0%, 57% { width: 31.48px; }
     100% { width: 77px; }
   }
   .dot-music__bottom {
@@ -1034,25 +1494,61 @@
   }
   .dot-music3__bottom {
     width: 292px;
-    height: 26px;
+    height: 50px;
+    transform: translateY(-17px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    gap: 8px;
+    gap: 3.26px;
+  }
+  .dot-music3__playRow {
+    width: 292px;
+    height: 24px;
+    transform: translateY(-2px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
   }
   .dot-music3__name {
-    width: 123px;
-    height: 16px;
-    font-family: 'Roboto', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 200px;
+    height: 24px;
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 130%;
     color: #000000;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  .dot-music3__eq {
+    flex: 0 0 auto;
+  }
+  .dot-music3__eq .dot-music2__eqCol span {
+    opacity: 0;
+    transform: translateX(-1px) scale(0.65);
+    animation:
+      dotMusicEqDotIn 95ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      dotMusicNoteDotLoop 1.8s steps(1, end) infinite;
+  }
+  .dot-music3__eq .dot-music2__eqCol.is-tall span:nth-child(1) { animation-delay: 0.16s, 1.20s; }
+  .dot-music3__eq .dot-music2__eqCol.is-tall span:nth-child(2) { animation-delay: 0.20s, 1.24s; }
+  .dot-music3__eq .dot-music2__eqCol.is-tall span:nth-child(3) { animation-delay: 0.24s, 1.28s; }
+  .dot-music3__eq .dot-music2__eqCol.is-tall span:nth-child(4) { animation-delay: 0.28s, 1.32s; }
+  .dot-music3__eq .dot-music2__eqCol.is-tall span:nth-child(5) { animation-delay: 0.32s, 1.36s; }
+  .dot-music3__eq .dot-music2__eqCol.is-mid span:nth-child(1) { animation-delay: 0.36s, 1.40s; }
+  .dot-music3__eq .dot-music2__eqCol.is-mid span:nth-child(2) { animation-delay: 0.40s, 1.44s; }
+  .dot-music3__eq .dot-music2__eqCol.is-mid span:nth-child(3) { animation-delay: 0.44s, 1.48s; }
+  .dot-music3__eq .dot-music2__eqCol.is-small span:nth-child(1) { animation-delay: 0.48s, 1.52s; }
+  .dot-music3__timeRow {
+    width: 292px;
+  }
+  .dot-music3__timeRow .dot-music__time {
+    color: rgba(0, 0, 0, 0.6);
   }
   .dot-music3__bar {
     width: 292px;
@@ -1374,33 +1870,57 @@
   }
   .dot-sch22__compact {
     opacity: 1;
+    overflow: hidden;
+    z-index: 1;
   }
   .dot-sch22__expanded {
     width: 340px;
     height: 168px;
     opacity: 0;
     pointer-events: none;
+    z-index: 2;
   }
   .detail-stage .dot-sch22 {
     width: 340px;
     clip-path: inset(0 172px 0 0 round 32px);
-    animation: dotScheduleReveal 3.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotScheduleReveal 13.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     will-change: clip-path;
   }
   .detail-stage .dot-sch22__compact {
-    animation: dotScheduleCompactOut 3.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: dotScheduleCompactOut 13.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .detail-stage .dot-sch22__compact::before {
+    content: '';
+    position: absolute;
+    inset: -42%;
+    border-radius: 32px;
+    background: linear-gradient(111.91deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 246, 238, 0.2) 9%, rgba(255, 237, 220, 0.25) 18%, rgba(255, 225, 198, 0.31) 27%, rgba(255, 210, 168, 0.37) 36%, rgba(255, 193, 132, 0.42) 45%, rgba(255, 174, 96, 0.45) 54%, rgba(255, 188, 120, 0.41) 63%, rgba(255, 209, 166, 0.35) 72%, rgba(255, 228, 204, 0.28) 82%, rgba(255, 243, 232, 0.21) 91%, rgba(255, 255, 255, 0.16) 100%);
+    background-size: 100% 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+    will-change: opacity, transform;
+    animation:
+      dotScheduleBgGradientIn 520ms cubic-bezier(0.16, 1, 0.3, 1) 5.86s forwards,
+      dotScheduleBgGradientFlow 2.1s ease-in-out 5.86s 2 alternate forwards,
+      dotScheduleBgGradientOut 960ms cubic-bezier(0.16, 1, 0.3, 1) 10.72s forwards;
   }
   .detail-stage .dot-sch22__expanded {
     opacity: 1;
+  }
+  .dot-sch22__compact .dot-sch__unit {
+    position: relative;
+    z-index: 3;
   }
   .detail-stage .dot-sch22__compact .dot-sch__row {
     animation: dotScheduleRowOut 360ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     will-change: opacity, transform;
   }
-  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(1) { animation-delay: 1.48s; }
-  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(2) { animation-delay: 1.54s; }
-  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(3) { animation-delay: 1.60s; }
-  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(4) { animation-delay: 1.66s; }
+  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(1) { animation-delay: 5.86s; }
+  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(2) { animation-delay: 5.94s; }
+  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(3) { animation-delay: 6.02s; }
+  .detail-stage .dot-sch22__compact .dot-sch__row:nth-child(4) { animation-delay: 6.10s; }
   .detail-stage .dot-sch22__expanded .dot-sch__date,
   .detail-stage .dot-sch22__expanded .dot-sch__row {
     opacity: 0;
@@ -1408,128 +1928,198 @@
     will-change: opacity, transform;
   }
   .detail-stage .dot-sch22__expanded .dot-sch__date {
-    animation: dotScheduleRowIn 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 1.88s;
+    animation: dotScheduleExpandedDateHold 420ms cubic-bezier(0.16, 1, 0.3, 1) 10.10s forwards;
   }
   .detail-stage .dot-sch22__expanded .dot-sch__row {
     animation: dotScheduleRowIn 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) { animation-delay: 2.00s; }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(2) { animation-delay: 2.12s; }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) { animation-delay: 2.24s; }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) { animation-delay: 2.36s; }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__bullet,
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__bullet {
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) { animation-delay: 11.88s; }
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(2) { animation-delay: 11.98s; }
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) { animation-delay: 12.08s; }
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) { animation-delay: 12.18s; }
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__text {
+    font-weight: 700;
+    color: #FF7F24;
+  }
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__time-note {
+    animation: dotScheduleTimeNoteIn 480ms cubic-bezier(0.16, 1, 0.3, 1) 12.08s forwards;
+  }
+  .detail-stage .dot-sch22__expanded .dot-sch__row .dot-sch__bullet {
     background: #303030;
   }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__text,
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__text {
-    color: rgba(255, 255, 255, 0.4);
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__bullet {
+    background: #FF7F24;
   }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__time {
-    color: rgba(255, 255, 255, 0.8);
+  .detail-stage .dot-sch22__expanded .dot-sch__row .dot-sch__text,
+  .detail-stage .dot-sch22__expanded .dot-sch__row .dot-sch__time,
+  .detail-stage .dot-sch22__expanded .dot-sch__row .dot-sch__time-note {
+    color: #FFFFFF;
   }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__bullet {
-    animation:
-      dotScheduleBulletAccent 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
-      dotScheduleAccentPulse 1.4s ease-in-out infinite;
-    animation-delay: 2.82s;
-  }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__text {
-    animation:
-      dotScheduleTextAccent 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
-      dotScheduleAccentTextPulse 1.4s ease-in-out infinite;
-    animation-delay: 2.82s;
-  }
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__text,
-  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__time {
-    animation: dotScheduleTextStrong 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 3.02s;
+  .detail-stage .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__text {
+    color: #FF7F24;
   }
   .detail-stage .dot-sch22__compact .dot-sch__date {
-    animation: dotScheduleDateOut 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 1.72s;
+    background-image: linear-gradient(90deg, #FF7F24 0%, #FFC69E 12.5%, #FEC868 25%, #FFC69E 37.5%, #FF7F24 50%, #FFC69E 62.5%, #FEC868 75%, #FFC69E 87.5%, #FF7F24 100%);
+    background-size: 420% 100%;
+    background-position: 0% 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #FF7F24;
+    animation:
+      dotScheduleDateTextureIn 760ms cubic-bezier(0.16, 1, 0.3, 1) 3s forwards,
+      dotScheduleDateGradientFlow 7.1s linear 3s forwards,
+      dotScheduleDateSettleOrange 240ms ease-out 10.10s forwards;
+  }
+  .detail-stage .dot-sch22__compact .dot-sch__list .dot-sch__text {
+    background-image:
+      linear-gradient(90deg, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 0%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 12.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 25%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 37.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 50%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 62.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 75%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 87.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 100%);
+    background-size: 420% 100%;
+    background-position: 0% 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation:
+      dotScheduleTextGradientIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 3s forwards,
+      dotScheduleTextGradientFlow 3.3s linear 3s forwards;
+  }
+  .detail-stage .dot-sch22__compact .dot-sch__list .dot-sch__text.is-strong {
+    --dot-sch-gradient-from: rgba(255, 255, 255, 1);
+    --dot-sch-gradient-to: rgba(255, 255, 255, 0.7);
+  }
+  .detail-stage .dot-sch22__compact .dot-sch__list .dot-sch__text.is-muted {
+    --dot-sch-gradient-from: rgba(255, 255, 255, 0.7);
+    --dot-sch-gradient-to: rgba(255, 255, 255, 0.3);
+  }
+  .detail-stage .dot-sch22__compact .dot-sch__list .dot-sch__text.is-muted {
+    opacity: 1;
+  }
+  .detail-stage .dot-sch22__compact .dot-sch__text::after {
+    content: none;
+  }
+  .preview-cell .dot-sch22__compact .dot-sch__text.is-strong {
+    --dot-sch-gradient-from: rgba(255, 255, 255, 1);
+    --dot-sch-gradient-to: rgba(255, 255, 255, 0.7);
+  }
+  .preview-cell .dot-sch22__compact .dot-sch__text.is-muted {
+    --dot-sch-gradient-from: rgba(255, 255, 255, 0.7);
+    --dot-sch-gradient-to: rgba(255, 255, 255, 0.3);
   }
   .preview-cell .dot-sch22 {
     width: 340px !important;
     clip-path: inset(0 172px 0 0 round 32px);
-    animation: dotSchedulePreviewReveal 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotSchedulePreviewReveal 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
     will-change: clip-path;
   }
   .preview-cell .dot-sch22__compact {
-    animation: dotSchedulePreviewCompact 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotSchedulePreviewCompact 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-sch22__compact::before {
+    content: '';
+    position: absolute;
+    inset: -42%;
+    border-radius: 32px;
+    background: linear-gradient(111.91deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 246, 238, 0.2) 9%, rgba(255, 237, 220, 0.25) 18%, rgba(255, 225, 198, 0.31) 27%, rgba(255, 210, 168, 0.37) 36%, rgba(255, 193, 132, 0.42) 45%, rgba(255, 174, 96, 0.45) 54%, rgba(255, 188, 120, 0.41) 63%, rgba(255, 209, 166, 0.35) 72%, rgba(255, 228, 204, 0.28) 82%, rgba(255, 243, 232, 0.21) 91%, rgba(255, 255, 255, 0.16) 100%);
+    background-size: 100% 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+    will-change: opacity, transform;
+    animation: dotSchedulePreviewBgGradient 18.2s linear infinite, dotSchedulePreviewBgGradientFlow 18.2s ease-in-out infinite;
   }
   .preview-cell .dot-sch22__compact .dot-sch__row {
-    animation: dotSchedulePreviewRowOut 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotSchedulePreviewRowOut 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(1) { animation-delay: 0s; }
-  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(2) { animation-delay: 0.04s; }
-  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(3) { animation-delay: 0.08s; }
-  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(4) { animation-delay: 0.12s; }
+  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(2) { animation-delay: 0.08s; }
+  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(3) { animation-delay: 0.16s; }
+  .preview-cell .dot-sch22__compact .dot-sch__row:nth-child(4) { animation-delay: 0.24s; }
   .preview-cell .dot-sch22__compact .dot-sch__date {
-    animation: dotSchedulePreviewDateOut 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    background-image: linear-gradient(90deg, #FF7F24 0%, #FFC69E 12.5%, #FEC868 25%, #FFC69E 37.5%, #FF7F24 50%, #FFC69E 62.5%, #FEC868 75%, #FFC69E 87.5%, #FF7F24 100%);
+    background-size: 420% 100%;
+    background-position: 0% 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #FF7F24;
+    animation:
+      dotSchedulePreviewDateTexture 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotScheduleDateGradientFlow 5.6s linear infinite;
   }
   .preview-cell .dot-sch22__expanded {
     opacity: 1;
-    animation: dotSchedulePreviewExpanded 7.2s linear infinite;
+    animation: dotSchedulePreviewExpanded 18.2s linear infinite;
   }
   .preview-cell .dot-sch22__expanded .dot-sch__date,
   .preview-cell .dot-sch22__expanded .dot-sch__row {
     opacity: 0;
     transform: translateX(18px);
-    animation: dotSchedulePreviewRowIn 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    animation: dotSchedulePreviewRowIn 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-sch22__expanded .dot-sch__date {
+    animation: dotSchedulePreviewExpandedDateHold 18.2s linear infinite;
   }
   .preview-cell .dot-sch22__expanded .dot-sch__date { animation-delay: 0s; }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) { animation-delay: 0.12s; }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(2) { animation-delay: 0.24s; }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) { animation-delay: 0.36s; }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) { animation-delay: 0.48s; }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__bullet,
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__bullet {
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) { animation-delay: 0s; }
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(2) { animation-delay: 0.10s; }
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) { animation-delay: 0.20s; }
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) { animation-delay: 0.30s; }
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__text {
+    font-weight: 700;
+    color: #FF7F24;
+  }
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__time-note {
+    animation: dotSchedulePreviewTimeNoteIn 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .preview-cell .dot-sch22__expanded .dot-sch__row .dot-sch__bullet {
     background: #303030;
   }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__text,
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__text {
-    color: rgba(255, 255, 255, 0.4);
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__bullet {
+    background: #FF7F24;
   }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__time {
-    color: rgba(255, 255, 255, 0.8);
+  .preview-cell .dot-sch22__expanded .dot-sch__row .dot-sch__text,
+  .preview-cell .dot-sch22__expanded .dot-sch__row .dot-sch__time,
+  .preview-cell .dot-sch22__expanded .dot-sch__row .dot-sch__time-note {
+    color: #FFFFFF;
   }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__bullet {
-    animation: dotScheduleBulletAccentLoop 7.2s ease-in-out infinite;
+  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(1) .dot-sch__text {
+    color: #FF7F24;
   }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(3) .dot-sch__text {
-    animation: dotScheduleTextAccentLoop 7.2s ease-in-out infinite;
+  .preview-cell .dot-sch22__compact .dot-sch__list .dot-sch__text {
+    background-image:
+      linear-gradient(90deg, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 0%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 12.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 25%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 37.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 50%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 62.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 75%, var(--dot-sch-gradient-to, rgba(255, 255, 255, 0.3)) 87.5%, var(--dot-sch-gradient-from, rgba(255, 255, 255, 0.7)) 100%);
+    background-size: 420% 100%;
+    background-position: 0% 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation:
+      dotSchedulePreviewTextGradient 18.2s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotScheduleTextGradientFlow 5.6s linear infinite;
   }
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__text,
-  .preview-cell .dot-sch22__expanded .dot-sch__row:nth-child(4) .dot-sch__time {
-    animation: dotScheduleTextStrongLoop 7.2s ease-in-out infinite;
+  .preview-cell .dot-sch22__compact .dot-sch__list .dot-sch__text.is-muted {
+    opacity: 1;
+  }
+  .preview-cell .dot-sch22__compact .dot-sch__text::after {
+    content: none;
   }
   .preview-cell .dot-sch42 .dot-sch__date,
   .preview-cell .dot-sch42 .dot-sch__row {
     opacity: 1;
     transform: none;
   }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(3) .dot-sch__bullet,
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(4) .dot-sch__bullet {
+  .preview-cell .dot-sch42 .dot-sch__row .dot-sch__bullet {
     background: #303030;
   }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(3) .dot-sch__text,
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(4) .dot-sch__text {
-    color: rgba(255, 255, 255, 0.4);
+  .preview-cell .dot-sch42 .dot-sch__row:nth-child(1) .dot-sch__bullet {
+    background: #FF7F24;
   }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(4) .dot-sch__time {
-    color: rgba(255, 255, 255, 0.8);
+  .preview-cell .dot-sch42 .dot-sch__row .dot-sch__text,
+  .preview-cell .dot-sch42 .dot-sch__row .dot-sch__time,
+  .preview-cell .dot-sch42 .dot-sch__row .dot-sch__time-note {
+    color: #FFFFFF;
+    animation: none;
   }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(3) .dot-sch__bullet {
-    animation: dotScheduleBulletAccentLoop 4.4s ease-in-out infinite;
-  }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(3) .dot-sch__text {
-    animation: dotScheduleTextAccentLoop 4.4s ease-in-out infinite;
-  }
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(4) .dot-sch__text,
-  .preview-cell .dot-sch42 .dot-sch__row:nth-child(4) .dot-sch__time {
-    animation: dotScheduleTextStrongLoop 4.4s ease-in-out infinite;
+  .preview-cell .dot-sch42 .dot-sch__row:nth-child(1) .dot-sch__text {
+    color: #FF7F24;
+    font-weight: 700;
   }
   .dot-sch42 {
     width: 340px;
@@ -1590,6 +2180,8 @@
   .dot-sch__bullet.is-accent { background: #FF7F24; }
 
   .dot-sch__text {
+    position: relative;
+    display: inline-block;
     font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -1617,18 +2209,37 @@
   }
   .dot-sch__time.is-time { color: rgba(255, 255, 255, 0.8); }
   .dot-sch__time.is-strong { color: #FFFFFF; }
+  .dot-sch__time-note {
+    margin-left: auto;
+    margin-right: 2px;
+    font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    height: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(12px);
+    will-change: opacity, transform;
+  }
+  .dot-sch__row--has-note .dot-sch__time {
+    margin-left: 0;
+  }
   @keyframes dotScheduleReveal {
-    0%, 52% { clip-path: inset(0 172px 0 0 round 32px); }
+    0%, 67% { clip-path: inset(0 172px 0 0 round 32px); }
+    77% { clip-path: inset(0 0 0 0 round 32px); }
     100% { clip-path: inset(0 0 0 0 round 32px); }
   }
   @keyframes dotScheduleCompactOut {
-    0%, 60% {
+    0%, 74% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
     100% {
-      opacity: 0;
-      transform: translateX(-8px) scale(0.98);
+      opacity: 1;
+      transform: translateX(0) scale(1);
     }
   }
   @keyframes dotScheduleDateOut {
@@ -1648,15 +2259,25 @@
     }
     100% {
       opacity: 0;
-      transform: translateX(-14px);
+      transform: translateX(-8px);
     }
   }
   @keyframes dotScheduleRowIn {
     0% {
       opacity: 0;
-      transform: translateX(18px);
+      transform: translateX(10px);
     }
     100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes dotScheduleTimeNoteIn {
+    from {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+    to {
       opacity: 1;
       transform: translateX(0);
     }
@@ -1681,47 +2302,120 @@
     from { color: rgba(255, 255, 255, 0.8); }
     to { color: #FFFFFF; }
   }
+  @keyframes dotScheduleDateTextureIn {
+    from {
+      color: #FF7F24;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: #FF7F24;
+    }
+    to {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  @keyframes dotScheduleDateGradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  @keyframes dotScheduleDateSettleOrange {
+    from {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    to {
+      color: #FF7F24;
+      -webkit-text-fill-color: #FF7F24;
+    }
+  }
+  @keyframes dotScheduleBgGradientIn {
+    from { opacity: 0; visibility: visible; }
+    to { opacity: 1; visibility: visible; }
+  }
+  @keyframes dotScheduleBgGradientOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
+  }
+  @keyframes dotScheduleBgGradientFlow {
+    0% { transform: translate3d(-10%, -10%, 0) scale(1.08); }
+    100% { transform: translate3d(10%, 10%, 0) scale(1.08); }
+  }
+  @keyframes dotSchedulePreviewBgGradient {
+    0%, 32.1%, 64.2%, 100% { opacity: 0; visibility: hidden; }
+    35.0%, 58.9% { opacity: 1; visibility: visible; }
+  }
+  @keyframes dotSchedulePreviewBgGradientFlow {
+    0%, 32.1%, 100% { transform: translate3d(-10%, -10%, 0) scale(1.08); }
+    43.6% { transform: translate3d(10%, 10%, 0) scale(1.08); }
+    55.2%, 99.5% { transform: translate3d(-10%, -10%, 0) scale(1.08); }
+  }
+  @keyframes dotScheduleExpandedDateHold {
+    from {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(0);
+    }
+  }
+  @keyframes dotScheduleTextGradientIn {
+    from {
+      -webkit-text-fill-color: var(--dot-sch-gradient-from, currentColor);
+      color: var(--dot-sch-gradient-from, currentColor);
+    }
+    to {
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+  @keyframes dotScheduleTextGradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
   @keyframes dotSchedulePreviewReveal {
-    0%, 18% { clip-path: inset(0 172px 0 0 round 32px); }
-    32%, 88% { clip-path: inset(0 0 0 0 round 32px); }
+    0%, 48.6% { clip-path: inset(0 172px 0 0 round 32px); }
+    55.8%, 93% { clip-path: inset(0 0 0 0 round 32px); }
     100% { clip-path: inset(0 172px 0 0 round 32px); }
   }
   @keyframes dotSchedulePreviewCompact {
-    0%, 17% {
+    0%, 44.2% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
-    30%, 86% {
-      opacity: 0;
-      transform: translateX(-8px) scale(0.98);
+    52.9%, 99.5% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
     }
-    94%, 100% {
+    100% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
   }
   @keyframes dotSchedulePreviewRowOut {
-    0%, 18% {
+    0%, 32.2% {
       opacity: 1;
       transform: translateX(0);
     }
-    28%, 86% {
+    34.1%, 93% {
       opacity: 0;
-      transform: translateX(-14px);
+      transform: translateX(-8px);
     }
-    94%, 100% {
+    100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
   @keyframes dotSchedulePreviewDateOut {
-    0%, 22% {
+    0%, 63% {
       opacity: 1;
       transform: translateX(0);
     }
-    30%, 86% {
+    73%, 88% {
       opacity: 0;
-      transform: translateX(-8px);
+      transform: translateX(-6px);
     }
     94%, 100% {
       opacity: 1;
@@ -1729,21 +2423,81 @@
     }
   }
   @keyframes dotSchedulePreviewExpanded {
-    0%, 18%, 92%, 100% { opacity: 0; }
-    32%, 86% { opacity: 1; }
+    0%, 65.2%, 100% { opacity: 0; }
+    65.3%, 93% { opacity: 1; }
   }
   @keyframes dotSchedulePreviewRowIn {
-    0%, 28% {
+    0%, 65.3% {
       opacity: 0;
-      transform: translateX(18px);
+      transform: translateX(10px);
     }
-    38%, 84% {
+    67.6%, 93% {
       opacity: 1;
       transform: translateX(0);
     }
-    90%, 100% {
+    100% {
       opacity: 0;
-      transform: translateX(-6px);
+      transform: translateX(10px);
+    }
+  }
+  @keyframes dotSchedulePreviewDateTexture {
+    0%, 16.4% {
+      color: #FF7F24;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: #FF7F24;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    20.7%, 55.5% {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    56.8%, 93% {
+      opacity: 1;
+      transform: translateX(0);
+      -webkit-text-fill-color: #FF7F24;
+      color: #FF7F24;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      -webkit-text-fill-color: #FF7F24;
+      color: #FF7F24;
+    }
+  }
+  @keyframes dotSchedulePreviewExpandedDateHold {
+    0%, 100% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+  }
+  @keyframes dotSchedulePreviewTimeNoteIn {
+    0%, 66.4% {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+    69.0%, 93% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+  }
+  @keyframes dotSchedulePreviewTextGradient {
+    0%, 16.4%, 93%, 100% {
+      -webkit-text-fill-color: var(--dot-sch-gradient-from, currentColor);
+      color: var(--dot-sch-gradient-from, currentColor);
+    }
+    19.0%, 34.6% {
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
   }
   @keyframes dotScheduleStandaloneRowIn {
@@ -1765,6 +2519,14 @@
     0%, 48%, 100% { color: rgba(255, 255, 255, 0.4); }
     58%, 78% { color: #FF7F24; }
     68% { color: #B94F12; }
+  }
+  @keyframes dotSchedulePreviewBulletAccentOnce {
+    0%, 90%, 100% { background: #303030; }
+    94%, 98% { background: #FF7F24; }
+  }
+  @keyframes dotSchedulePreviewTextAccentOnce {
+    0%, 90%, 100% { color: rgba(255, 255, 255, 0.4); }
+    94%, 98% { color: #FF7F24; }
   }
   @keyframes dotScheduleTextStrongLoop {
     0%, 54%, 100% { color: rgba(255, 255, 255, 0.4); }
@@ -2046,6 +2808,61 @@
   .dot-w21 .dot-w21__sun circle:nth-child(29) {
     animation-name: dotWeatherSunNearOuterLoop !important;
   }
+  .dot-w11 .dot-w11__sun circle,
+  .dot-w21 .dot-w21__sun circle {
+    animation: dotWeatherSunOuterHoldLoop 6.7s cubic-bezier(0.18, 0.86, 0.24, 1) infinite both !important;
+    animation-delay: 0ms !important;
+  }
+  .dot-w11 .dot-w11__sun circle:nth-child(19),
+  .dot-w21 .dot-w21__sun circle:nth-child(19) {
+    animation-name: dotWeatherSunCenterHoldLoop !important;
+  }
+  .dot-w11 .dot-w11__sun circle:nth-child(14),
+  .dot-w11 .dot-w11__sun circle:nth-child(18),
+  .dot-w11 .dot-w11__sun circle:nth-child(20),
+  .dot-w11 .dot-w11__sun circle:nth-child(24),
+  .dot-w21 .dot-w21__sun circle:nth-child(14),
+  .dot-w21 .dot-w21__sun circle:nth-child(18),
+  .dot-w21 .dot-w21__sun circle:nth-child(20),
+  .dot-w21 .dot-w21__sun circle:nth-child(24) {
+    animation-name: dotWeatherSunInnerHoldLoop !important;
+  }
+  .dot-w11 .dot-w11__sun circle:nth-child(10),
+  .dot-w11 .dot-w11__sun circle:nth-child(13),
+  .dot-w11 .dot-w11__sun circle:nth-child(15),
+  .dot-w11 .dot-w11__sun circle:nth-child(17),
+  .dot-w11 .dot-w11__sun circle:nth-child(21),
+  .dot-w11 .dot-w11__sun circle:nth-child(23),
+  .dot-w11 .dot-w11__sun circle:nth-child(25),
+  .dot-w11 .dot-w11__sun circle:nth-child(28),
+  .dot-w21 .dot-w21__sun circle:nth-child(10),
+  .dot-w21 .dot-w21__sun circle:nth-child(13),
+  .dot-w21 .dot-w21__sun circle:nth-child(15),
+  .dot-w21 .dot-w21__sun circle:nth-child(17),
+  .dot-w21 .dot-w21__sun circle:nth-child(21),
+  .dot-w21 .dot-w21__sun circle:nth-child(23),
+  .dot-w21 .dot-w21__sun circle:nth-child(25),
+  .dot-w21 .dot-w21__sun circle:nth-child(28) {
+    animation-name: dotWeatherSunMidHoldLoop !important;
+  }
+  .dot-w11 .dot-w11__sun circle:nth-child(9),
+  .dot-w11 .dot-w11__sun circle:nth-child(11),
+  .dot-w11 .dot-w11__sun circle:nth-child(12),
+  .dot-w11 .dot-w11__sun circle:nth-child(16),
+  .dot-w11 .dot-w11__sun circle:nth-child(22),
+  .dot-w11 .dot-w11__sun circle:nth-child(26),
+  .dot-w11 .dot-w11__sun circle:nth-child(27),
+  .dot-w11 .dot-w11__sun circle:nth-child(29),
+  .dot-w21 .dot-w21__sun circle:nth-child(9),
+  .dot-w21 .dot-w21__sun circle:nth-child(11),
+  .dot-w21 .dot-w21__sun circle:nth-child(12),
+  .dot-w21 .dot-w21__sun circle:nth-child(16),
+  .dot-w21 .dot-w21__sun circle:nth-child(22),
+  .dot-w21 .dot-w21__sun circle:nth-child(26),
+  .dot-w21 .dot-w21__sun circle:nth-child(27),
+  .dot-w21 .dot-w21__sun circle:nth-child(29) {
+    animation-name: dotWeatherSunNearOuterHoldLoop !important;
+  }
   @keyframes dotWeatherFadeIn {
     0% {
       opacity: 0;
@@ -2117,6 +2934,36 @@
     25% { opacity: 1; transform: scale(1.035); }
     32%, 76% { opacity: 1; transform: scale(1); }
     84%, 100% { opacity: 0; transform: scale(0.56); }
+  }
+  @keyframes dotWeatherSunCenterHoldLoop {
+    0%, 0.5% { opacity: 0; transform: scale(0.5); }
+    2.2% { opacity: 1; transform: scale(1.08); }
+    3.9%, 86.2% { opacity: 1; transform: scale(1); }
+    88.2%, 100% { opacity: 0; transform: scale(0.56); }
+  }
+  @keyframes dotWeatherSunInnerHoldLoop {
+    0%, 1.5% { opacity: 0; transform: scale(0.5); }
+    3.1% { opacity: 1; transform: scale(1.075); }
+    4.8%, 85.2% { opacity: 1; transform: scale(1); }
+    87.2%, 100% { opacity: 0; transform: scale(0.56); }
+  }
+  @keyframes dotWeatherSunMidHoldLoop {
+    0%, 2.4% { opacity: 0; transform: scale(0.5); }
+    4.1% { opacity: 1; transform: scale(1.06); }
+    5.8%, 84.3% { opacity: 1; transform: scale(1); }
+    86.2%, 100% { opacity: 0; transform: scale(0.56); }
+  }
+  @keyframes dotWeatherSunNearOuterHoldLoop {
+    0%, 3.4% { opacity: 0; transform: scale(0.5); }
+    5.1% { opacity: 1; transform: scale(1.045); }
+    6.8%, 83.3% { opacity: 1; transform: scale(1); }
+    85.2%, 100% { opacity: 0; transform: scale(0.56); }
+  }
+  @keyframes dotWeatherSunOuterHoldLoop {
+    0%, 4.3% { opacity: 0; transform: scale(0.5); }
+    6% { opacity: 1; transform: scale(1.035); }
+    7.7%, 82.4% { opacity: 1; transform: scale(1); }
+    84.3%, 100% { opacity: 0; transform: scale(0.56); }
   }
 
   /* Run Panel Animation */
@@ -2285,6 +3132,24 @@
     position: relative;
     overflow: hidden;
   }
+  .dot-call::before {
+    content: '';
+    position: absolute;
+    inset: -18px -34px;
+    background:
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0px, rgba(255, 252, 249, 0.74) 44px, rgba(255, 243, 235, 0.62) 96px, rgba(255, 226, 206, 0.44) 150px, rgba(255, 196, 150, 0.27) 194px, rgba(255, 151, 72, 0.14) 222px, rgba(255, 196, 150, 0.27) 250px, rgba(255, 226, 206, 0.44) 294px, rgba(255, 243, 235, 0.62) 348px, rgba(255, 252, 249, 0.74) 400px, rgba(255, 255, 255, 0.78) 444px),
+      linear-gradient(90deg, #FFFFFF 0%, #FFF9F5 44%, #FFE5D2 70%, #FFC08F 90%, #FF9950 100%);
+    background-size: auto, 100% 100%;
+    background-position: 0 50%, 0 50%;
+    filter: blur(12px);
+    opacity: 0;
+    z-index: 0;
+    will-change: opacity, background-position, filter;
+    animation:
+      dotCallGradientIn 11s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotCallGradientFlow 1.45s linear 6.8s infinite;
+    pointer-events: none;
+  }
   .dot-call__avatar {
     position: absolute;
     width: 50px;
@@ -2294,6 +3159,7 @@
     border-radius: 50%;
     background: #D9D9D9;
     overflow: hidden;
+    z-index: 1;
   }
   .dot-call__avatarImg {
     width: 100%;
@@ -2311,6 +3177,7 @@
     gap: 4px;
     width: 200px;
     height: 41px;
+    z-index: 1;
   }
   .dot-call__name {
     font-family: 'Pretendard', var(--font), -apple-system, BlinkMacSystemFont, sans-serif;
@@ -2342,32 +3209,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+    animation: dotCallArrowFadeOut 11s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   .dot-call__arrow svg { width: 32px; height: 32px; display: block; }
 
   /* Call arrow dot-by-dot reveal (same cadence as running coach) */
   .dot-call__arrow svg .dot-call-arrow-dot {
     /* Burst once per 3s, then rest */
-    animation: dotCallArrowReveal 3s steps(1, end) infinite;
+    animation: dotCallArrowRevealSequence 11s steps(1, end) infinite;
   }
-  @keyframes dotCallArrowReveal {
-    0% { opacity: 0; }
-    0.1% { opacity: 1; }
-    36% { opacity: 1; }
-    42% { opacity: 0; }
-    100% { opacity: 0; }
+  @keyframes dotCallArrowRevealSequence {
+    0%, 16.35%, 32.70%, 100% { opacity: 0; }
+    0.10%, 12.00%, 16.45%, 28.35%, 32.80%, 44.70% { opacity: 1; }
+    13.10%, 29.45%, 45.80% { opacity: 0; }
   }
 
   /* Subtle nudge synced with the burst */
   .dot-call__arrow svg {
     will-change: transform;
-    animation: dotCallArrowNudge 3s ease-in-out infinite;
+    animation: dotCallArrowNudgeSequence 11s ease-in-out infinite;
   }
-  @keyframes dotCallArrowNudge {
-    0%, 4% { transform: translateX(0); }
-    10% { transform: translateX(3px); }
-    18% { transform: translateX(0); }
-    100% { transform: translateX(0); }
+  @keyframes dotCallArrowNudgeSequence {
+    0%, 1.1%, 16.35%, 17.45%, 32.70%, 33.80%, 100% { transform: translateX(0); }
+    3.25%, 19.60%, 35.95% { transform: translateX(3px); }
+    5.85%, 22.20%, 38.55% { transform: translateX(0); }
+  }
+  @keyframes dotCallArrowFadeOut {
+    0%, 52%, 100% {
+      opacity: 1;
+    }
+    62%, 90% {
+      opacity: 0;
+    }
+    96% { opacity: 1; }
+  }
+  @keyframes dotCallGradientIn {
+    0%, 52% {
+      opacity: 0;
+    }
+    62%, 92% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes dotCallGradientFlow {
+    0% { background-position: 0 50%, 0 50%; }
+    100% { background-position: 444px 50%, 0 50%; }
   }
   .dot-call__arrow svg .dot-call-arrow-dot--0 { animation-delay: 0s; }
   .dot-call__arrow svg .dot-call-arrow-dot--1 { animation-delay: 0.06s; }
@@ -2735,51 +3625,197 @@
     to { opacity: 1; }
   }
 
-  /* Camera (dot) (164×246) */
-  .dot-cam {
-    width: 164px;
-    height: 246px;
+  /* Camera (dot) motion wrapper. The final UI is only Camera_widget_key-color-ver. */
+  .dot-camera-motion {
+    width: 168px;
+    height: 340px;
     position: relative;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     border-radius: 32px;
     overflow: hidden;
   }
-  .dot-cam__img {
+  .dot-camera-motion__intro {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Match reference: keep subject/face in view (less lower-body crop) */
-    object-position: 50% 18%;
-  }
-  .dot-cam__fade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
+    opacity: 0;
+    z-index: 5;
   }
-  .dot-cam__shutter {
+  .dot-camera-motion__introIcon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+  .detail-stage .dot-camera-motion {
+    width: 82px;
+    height: 82px;
+    background: #FF7F24;
+    border-radius: 99px;
+    animation: dotCameraDetailShell 8.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: width, height, border-radius, background;
+  }
+  .detail-stage .dot-camera-motion__intro {
+    opacity: 1;
+    animation: dotCameraIntroOut 8.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .preview-cell .dot-camera-motion {
+    width: 82px;
+    height: 82px;
+    background: #FF7F24;
+    border-radius: 99px;
+    animation: dotCameraDetailShell 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: width, height, border-radius, background;
+  }
+  .preview-cell .dot-camera-motion__intro {
+    opacity: 1;
+    animation: dotCameraIntroOut 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  @keyframes dotCameraDetailShell {
+    0%, 42% {
+      width: 82px;
+      height: 82px;
+      border-radius: 99px;
+      background: #FF7F24;
+    }
+    50% {
+      width: 120px;
+      height: 120px;
+      border-radius: 32px;
+      background: #FF7F24;
+    }
+    60% {
+      width: 120px;
+      height: 120px;
+      border-radius: 32px;
+      background: #FF7F24;
+    }
+    86%, 100% {
+      width: 168px;
+      height: 340px;
+      border-radius: 32px;
+      background: transparent;
+    }
+  }
+  @keyframes dotCameraIntroOut {
+    0%, 58% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    70%, 100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+  @keyframes dotCameraWidgetIn {
+    0%, 60% {
+      opacity: 0;
+      transform: translate(-50%, -50%);
+    }
+    86%, 100% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  @keyframes dotCameraControlIn {
+    0%, 84% {
+      opacity: 0;
+    }
+    88%, 100% {
+      opacity: 1;
+    }
+  }
+
+  /* Camera_widget_key-color-ver. */
+  .camera-widget-key-color-ver {
+    position: absolute;
+    width: 168px;
+    height: 340px;
+    left: 50%;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    overflow: hidden;
+    opacity: 1;
+    isolation: isolate;
+    transform: translate(-50%, -50%);
+  }
+  .detail-stage .camera-widget-key-color-ver {
+    opacity: 0;
+    z-index: 10;
+    animation: dotCameraWidgetIn 8.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity;
+  }
+  .preview-cell .camera-widget-key-color-ver {
+    opacity: 0;
+    z-index: 10;
+    animation: dotCameraWidgetIn 8.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    will-change: opacity;
+  }
+  .camera-widget__img {
+    position: absolute;
+    width: 168px;
+    height: 340px;
+    left: 0;
+    top: 0;
+    background-image: url("/assets/dot-gallery/image-114131.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  .camera-widget__bg-gradient {
+    position: absolute;
+    width: 168px;
+    height: 340px;
+    left: 0;
+    top: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+  .camera-widget__shot-button {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: calc(50% - 48px/2);
+    bottom: 20px;
+    z-index: 2;
+  }
+  .camera-widget__shot-button-graphic {
     box-sizing: border-box;
     position: absolute;
     width: 48px;
     height: 48px;
     left: calc(50% - 48px/2);
-    top: 178px;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.8) 100%);
-    border: 0.375px solid #FFFFFF;
+    top: 0;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 127, 36, 0.6) 0%, rgba(255, 127, 36, 0.8) 100%);
+    border: 0.25px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-radius: 999px;
   }
-  .dot-cam__expand {
+  .camera-widget__expand-button {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 116px;
-    top: 193px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 36px;
+    height: 36px;
+    right: 20px;
+    bottom: 24px;
+  }
+  .detail-stage .camera-widget__expand-button {
+    opacity: 0;
+    animation: dotCameraControlIn 8.2s linear forwards;
+  }
+  .preview-cell .camera-widget__expand-button {
+    opacity: 0;
+    animation: dotCameraControlIn 8.2s linear infinite;
+  }
+  .camera-widget__expand-svg {
+    display: block;
+    width: 36px;
+    height: 36px;
+    filter: none;
   }
 
   header {
@@ -3243,6 +4279,14 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
+  }
+  .preview-cell .stage .stage-scale > .dot-camera-motion {
+    width: 82px;
+    height: 82px;
+  }
+  .preview-cell .stage .stage-scale > .dot-camera-motion .camera-widget-key-color-ver {
+    width: 168px;
+    height: 340px;
   }
   .preview-cell .stage::after {
     content: none;
