@@ -2762,8 +2762,37 @@
     height: 149px;
     border-radius: 32px;
     background: #171614;
+    position: relative;
     display: block;
     overflow: hidden;
+  }
+  /* Gradient overlay: reveals after 3s, then "flows" */
+  .dot-orange-badge-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(140px 120px at 22% 30%,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.0) 62%
+      ),
+      linear-gradient(120deg,
+        #FFE96B 0%,
+        #FFC55A 28%,
+        #FF8A2A 62%,
+        #FFF1A1 100%
+      );
+    background-size: 220% 220%, 280% 280%;
+    background-position: 15% 55%, 25% 50%;
+    filter: saturate(1.05) contrast(1.02);
+    will-change: opacity, background-position;
+    transform: translateZ(0);
+    animation:
+      obcBgOpacityLoop 10600ms ease-in-out 0ms infinite,
+      obcBgFlowLoop 10600ms linear 0ms infinite;
   }
   .dot-orange-badge-card__inner {
     position: relative;
@@ -2771,6 +2800,27 @@
     height: 148px;
     padding: 20px 18px;
     box-sizing: border-box;
+    z-index: 1;
+  }
+  /* Loop timeline (10.6s):
+     0.0–3.0s   : original bg (overlay hidden)
+     3.0–4.4s   : fade in gradient
+     4.4–9.4s   : hold gradient (5s) + flow
+     9.4–10.6s  : fade out to original
+  */
+  @keyframes obcBgOpacityLoop {
+    0% { opacity: 0; }
+    28.3019% { opacity: 0; }  /* 3.0 / 10.6 */
+    41.5094% { opacity: 1; }  /* 4.4 / 10.6 */
+    88.6792% { opacity: 1; }  /* 9.4 / 10.6 */
+    100% { opacity: 0; }
+  }
+  @keyframes obcBgFlowLoop {
+    0% { background-position: 15% 55%, 25% 50%; }
+    28.3019% { background-position: 15% 55%, 25% 50%; }
+    58.4906% { background-position: 88% 42%, 80% 48%; }
+    88.6792% { background-position: 15% 55%, 25% 50%; }
+    100% { background-position: 15% 55%, 25% 50%; }
   }
   .dot-orange-badge-card__text {
     position: relative;
@@ -2862,6 +2912,10 @@
     .dot-orange-badge-card__exclaim { animation: none !important; }
     .dot-orange-badge-card__title,
     .dot-orange-badge-card__subtitle { animation: none !important; }
+    .dot-orange-badge-card::before {
+      animation: none !important;
+      opacity: 1;
+    }
   }
 
   /* Weather 1×1 (82×82) */
