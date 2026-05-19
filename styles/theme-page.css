@@ -1701,6 +1701,30 @@
     will-change: clip-path, -webkit-mask-position, mask-position, -webkit-mask-image, mask-image;
     animation: dotTextCycle 3s cubic-bezier(.2,.8,.2,1) infinite;
   }
+
+  /* When React DecryptedText is mounted, disable the legacy mask animation. */
+  .dot-steps21__count.dot-decrypted-mounted {
+    animation: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    clip-path: none !important;
+    will-change: auto !important;
+  }
+  .dot-steps21__count.dot-decrypted-mounted .dot-decrypted-encrypted {
+    opacity: 0.55;
+  }
+
+  .dot-temp11__center.dot-decrypted-mounted,
+  .dot-date11__text.dot-decrypted-mounted {
+    animation: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    clip-path: none !important;
+    will-change: auto !important;
+  }
+  :is(.dot-temp11__center, .dot-date11__text).dot-decrypted-mounted .dot-decrypted-encrypted {
+    opacity: 0.55;
+  }
   .dot-date11__text {
     /* slightly denser so multi-line feels organic */
     --dot-text-mask-a: 9px;
@@ -3166,9 +3190,28 @@
 
   /* Call arrow dot-by-dot reveal (same cadence as running coach) */
   .dot-call__arrow svg .dot-call-arrow-dot {
-    animation: dotCallArrowReveal 1.6s steps(1, end) infinite;
+    /* Burst once per 3s, then rest */
+    animation: dotCallArrowReveal 3s steps(1, end) infinite;
   }
-  @keyframes dotCallArrowReveal { 0% { opacity: 0; } 0.1%,100% { opacity: 1; } }
+  @keyframes dotCallArrowReveal {
+    0% { opacity: 0; }
+    0.1% { opacity: 1; }
+    36% { opacity: 1; }
+    42% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Subtle nudge synced with the burst */
+  .dot-call__arrow svg {
+    will-change: transform;
+    animation: dotCallArrowNudge 3s ease-in-out infinite;
+  }
+  @keyframes dotCallArrowNudge {
+    0%, 4% { transform: translateX(0); }
+    10% { transform: translateX(3px); }
+    18% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
   .dot-call__arrow svg .dot-call-arrow-dot--0 { animation-delay: 0s; }
   .dot-call__arrow svg .dot-call-arrow-dot--1 { animation-delay: 0.06s; }
   .dot-call__arrow svg .dot-call-arrow-dot--2 { animation-delay: 0.12s; }

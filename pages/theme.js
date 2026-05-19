@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { useEffect } from "react";
+import CameraDotTransition from "../components/prototype/CameraDotTransition";
 
 export default function ThemePage() {
   return (
@@ -44,6 +44,25 @@ export default function ThemePage() {
         <div className="layout-row" id="theme-layout-row">
           {/* Left Column: Detail / Animation Test (Black Background) */}
           <div className="detail-col" id="detail-col">
+            <div style={{ padding: "0 0 14px" }}>
+              <CameraDotTransition
+                ensureCameraDot={async () => {
+                  if (typeof document === "undefined") return;
+                  // Ensure Dot dataset + Cards mode so the camera card exists in preview grid.
+                  const btnDot = document.getElementById("btn-dot");
+                  if (btnDot) btnDot.click();
+                  const btnCards = document.querySelector('.preview-mode-btn[data-mode="cards"]');
+                  if (btnCards) btnCards.click();
+                  await new Promise((r) => setTimeout(r, 80));
+                  const cam = document.querySelector("#preview-grid .dot-cam");
+                  if (cam && cam.scrollIntoView) {
+                    cam.scrollIntoView({ block: "center", inline: "center", behavior: "instant" });
+                  }
+                  await new Promise((r) => setTimeout(r, 50));
+                }}
+                targetSelector="#preview-grid .dot-cam"
+              />
+            </div>
             <div className="detail-view" id="detail-view">
               <div className="detail-stage-container">
                 <div className="detail-stage" id="detail-stage">

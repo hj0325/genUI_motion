@@ -3520,7 +3520,21 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
               slot.left >= targetLeft + 104 ||
               slot.top + 48 <= targetTop ||
               slot.top >= targetTop + 104;
-          }).slice(0, 8);
+          });
+          var neededSlots = Math.max(0, cells.length - 1);
+          // Prefer non-overlapping slots; if there aren't enough, fall back to the remaining slots
+          // so we never crash on `slot.left` during layout.
+          if (slots.length < neededSlots) {
+            var seen = {};
+            slots.forEach(function (s) {
+              seen[s.left + ',' + s.top] = 1;
+            });
+            smallSlots.forEach(function (s) {
+              var key = s.left + ',' + s.top;
+              if (!seen[key]) slots.push(s);
+            });
+          }
+          slots = slots.slice(0, neededSlots);
 
           frame.classList.add('is-focus');
           cells.forEach(function (item) {
@@ -3550,7 +3564,7 @@ window.renderAtomicForRole = function renderAtomicForRole(comp, rect) {
               item.classList.add('is-selected');
               return;
             }
-            var slot = slots[slotIndex++];
+            var slot = slots[slotIndex++] || smallSlots[(slotIndex - 1) % smallSlots.length] || { left: 1, top: 1 };
             item.style.left = slot.left + 'px';
             item.style.top = slot.top + 'px';
           });

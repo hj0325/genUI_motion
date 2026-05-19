@@ -2,6 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import DotRunningCoach from "../components/cards/DotRunningCoach";
+import CameraDotTransition from "../components/prototype/CameraDotTransition";
 import PageShell from "../components/layout/PageShell";
 import TopStatusBar from "../components/layout/TopStatusBar";
 import { mlpTiles, prototypeCards } from "../lib/datasets/prototypeData";
@@ -117,6 +118,7 @@ export default function PrototypePage() {
         ]
       : [
           { key: "dot-running", label: "Running coach", value: "dot-running" },
+          { key: "dot-camera", label: "Camera (dot)", value: "dot-camera" },
           { key: "nav-health", label: "Health", value: "health" },
           { key: "nav-lock", label: "Lock", value: "lock" },
           { key: "nav-home", label: "Home", value: "home" },
@@ -250,6 +252,17 @@ export default function PrototypePage() {
                 </button>
               ))}
             </div>
+
+            {viewMode === "dot" ? (
+              <div style={{ marginTop: 14 }}>
+                <CameraDotTransition
+                  ensureCameraDot={() => {
+                    setActiveDot("dot-camera");
+                  }}
+                  targetSelector="#dot-detail-preview .dot-cam"
+                />
+              </div>
+            ) : null}
 
             <div className="mlp-generate">
               <div className="mlp-generate__title">AI UI Generate</div>
