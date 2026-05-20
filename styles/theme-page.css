@@ -454,11 +454,50 @@
     position: absolute;
     inset: -64px;
     opacity: 0;
-    background: linear-gradient(137.88deg, #FF7F24 2.12%, #FFCAA4 94.17%);
+    /* Multi-layer gradient so colors can "cross" while flowing */
+    background-image:
+      radial-gradient(140px 120px at 30% 32%,
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(255, 255, 255, 0.0) 64%
+      ),
+      linear-gradient(135deg,
+        #FFE96B 0%,
+        #FFB85A 34%,
+        #FF7F24 66%,
+        #FFD6A7 100%
+      ),
+      linear-gradient(315deg,
+        rgba(255, 106, 0, 0.78) 0%,
+        rgba(255, 238, 136, 0.58) 55%,
+        rgba(255, 142, 64, 0.74) 100%
+      );
+    background-size: 220% 220%, 260% 260%, 280% 280%;
+    background-position: 10% 20%, 20% 50%, 82% 28%;
+    background-repeat: no-repeat;
+    background-blend-mode: screen, normal, overlay;
     border-radius: 32px;
     pointer-events: none;
+    /* Soft wipe (avoid hard clip edge) */
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 42%,
+      rgba(0, 0, 0, 1) 58%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 42%,
+      rgba(0, 0, 0, 1) 58%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-mask-size: 240% 100%;
+    mask-size: 240% 100%;
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
     transform: translate3d(-18px, -18px, 0);
-    will-change: opacity, transform;
+    will-change: opacity, transform, background-position, filter;
   }
   .detail-stage .dot-music1__compact--layout .dot-music1__player {
     animation: none;
@@ -466,6 +505,7 @@
   .detail-stage .dot-music1__compact--layout .dot-music1__player::before {
     animation:
       dotMusicSecondBgIn 12s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      dotMusicSecondBgWipe 12s cubic-bezier(0.16, 1, 0.3, 1) forwards,
       dotMusicSecondBgFlow 9s linear 5s forwards;
   }
   .detail-stage .dot-music1__compact--layout .dot-music1__player::after {
@@ -801,6 +841,7 @@
   .preview-cell .dot-music1__compact--layout .dot-music1__player::before {
     animation:
       dotMusicPreviewSecondBgInHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
+      dotMusicPreviewSecondBgWipeHold 19s cubic-bezier(0.16, 1, 0.3, 1) infinite,
       dotMusicSecondBgFlow 9s linear 5s infinite;
   }
   .preview-cell .dot-music1__compact--layout .dot-music1__player::after {
@@ -951,7 +992,7 @@
   @keyframes dotMusicIconIn {
     0%, 96% {
       opacity: 0;
-      transform: translateX(0) scale(1);
+      transform: translateX(8px) scale(0.985);
     }
     100% {
       opacity: 1;
@@ -991,12 +1032,31 @@
     60%, 96% { opacity: 1; }
     100% { opacity: 0; }
   }
+  @keyframes dotMusicSecondBgWipe {
+    0%, 33% {
+      -webkit-mask-position: 0% 0%;
+      mask-position: 0% 0%;
+    }
+    60%, 100% {
+      -webkit-mask-position: 100% 0%;
+      mask-position: 100% 0%;
+    }
+  }
   @keyframes dotMusicSecondBgFlow {
     0% {
       transform: translate3d(-18px, -18px, 0);
+      background-position: 10% 20%, 20% 50%, 82% 28%;
+      filter: saturate(1.02) contrast(1.01);
+    }
+    50% {
+      transform: translate3d(18px, 6px, 0);
+      background-position: 92% 72%, 78% 30%, 14% 68%;
+      filter: saturate(1.08) contrast(1.02);
     }
     100% {
-      transform: translate3d(18px, 18px, 0);
+      transform: translate3d(-18px, -18px, 0);
+      background-position: 10% 20%, 20% 50%, 82% 28%;
+      filter: saturate(1.02) contrast(1.01);
     }
   }
   @keyframes dotMusicSecondTextIn {
@@ -1120,12 +1180,22 @@
     32.63%, 89.47% { opacity: 0; }
   }
   @keyframes dotMusicPreviewSecondBgInHold {
-    0%, 26.32%, 66.32%, 100% { opacity: 0; }
-    37.89%, 63.16% { opacity: 1; }
+    0%, 26.32%, 100% { opacity: 0; }
+    37.89%, 66.32% { opacity: 1; }
+  }
+  @keyframes dotMusicPreviewSecondBgWipeHold {
+    0%, 26.32%, 100% {
+      -webkit-mask-position: 0% 0%;
+      mask-position: 0% 0%;
+    }
+    37.89%, 66.32% {
+      -webkit-mask-position: 100% 0%;
+      mask-position: 100% 0%;
+    }
   }
   @keyframes dotMusicPreviewSecondTextInHold {
     0%, 34.74%, 66.32%, 100% { opacity: 0; }
-    41.05%, 63.16% { opacity: 1; }
+    41.05%, 66.32% { opacity: 1; }
   }
   @keyframes dotMusicPreviewFirstIconBgHold {
     0%, 26.32%, 100% {
@@ -1433,6 +1503,8 @@
     width: 340px;
     height: 168px;
     background: #FF7F24;
+    position: relative;
+    isolation: isolate;
     color: #000000;
     display: flex;
     flex-direction: column;
@@ -1440,6 +1512,115 @@
     align-items: flex-start;
     padding: 20px 24px;
     gap: 32px;
+  }
+  /* Left → right gradient "wipe" overlay (enabled by parent animations) */
+  .dot-music3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(180px 130px at 18% 40%,
+        rgba(255, 255, 255, 0.40) 0%,
+        rgba(255, 255, 255, 0.0) 64%
+      ),
+      linear-gradient(90deg,
+        #FFE96B 0%,
+        #FFC35F 32%,
+        #FF8A2A 68%,
+        #FF7F24 100%
+      ),
+      linear-gradient(270deg,
+        rgba(255, 106, 0, 0.62) 0%,
+        rgba(255, 238, 136, 0.42) 55%,
+        rgba(255, 153, 80, 0.58) 100%
+      );
+    background-size: 220% 220%, 260% 260%, 280% 280%;
+    background-position: 10% 45%, 20% 50%, 86% 30%;
+    background-repeat: no-repeat;
+    background-blend-mode: screen, normal, overlay;
+    clip-path: inset(0 100% 0 0 round 32px);
+    filter: saturate(1.03) contrast(1.01);
+    will-change: clip-path, opacity, background-position, filter;
+  }
+  .dot-music3 > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .detail-stage .dot-music1__icon .dot-music3::before {
+    animation:
+      dotMusic3BgShimmer 2800ms ease-in-out 0ms infinite;
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 32px);
+  }
+  .preview-cell .dot-music1__icon .dot-music3::before {
+    animation:
+      dotMusic3BgShimmer 2800ms ease-in-out 0ms infinite;
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 32px);
+  }
+  @keyframes dotMusic3BgWipe {
+    0%, 91.5% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0 round 32px);
+    }
+    92% {
+      opacity: 1;
+      clip-path: inset(0 100% 0 0 round 32px);
+    }
+    100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+  }
+  @keyframes dotMusic3BgWipeHold {
+    0%, 63.16%, 100% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0 round 32px);
+    }
+    66.32% {
+      opacity: 1;
+      clip-path: inset(0 100% 0 0 round 32px);
+    }
+    70% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+    89.47% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+    100% {
+      opacity: 0;
+      clip-path: inset(0 0 0 0 round 32px);
+    }
+  }
+  @keyframes dotMusic3BgShimmer {
+    0% {
+      background-position: 10% 45%, 20% 50%, 86% 30%;
+      filter: saturate(1.03) contrast(1.01);
+    }
+    50% {
+      background-position: 92% 62%, 78% 40%, 16% 74%;
+      filter: saturate(1.08) contrast(1.02);
+    }
+    100% {
+      background-position: 10% 45%, 20% 50%, 86% 30%;
+      filter: saturate(1.03) contrast(1.01);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot-music3::before {
+      animation: none !important;
+      opacity: 1;
+      clip-path: inset(0 0 0 0 round 32px);
+      background-position: 20% 50%, 35% 50%, 70% 40%;
+      filter: none;
+    }
   }
   .dot-music3__top {
     width: 280px;
